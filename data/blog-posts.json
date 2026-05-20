@@ -396,5 +396,572 @@
         "a": "Generally, a good college with strong placements is more important than a specific branch, especially for ranks above 30,000. Compare college placement ratings on RankSure before deciding."
       }
     ]
+  },
+  {
+    "slug": "how-to-fill-eapcet-web-options-2025-strategy",
+    "title": "How to Fill EAPCET Web Options 2025 — Strategy Guide for Maximum Chances",
+    "description": "Step-by-step strategy for filling AP EAPCET 2025 web options. Learn how many choices to add, ordering strategy, common mistakes, and how to use RankSure's predictor to optimize your web options.",
+    "date": "2025-06-28",
+    "updated": "2025-06-28",
+    "author": "RankSure Team",
+    "category": "Counselling",
+    "tags": ["EAPCET web options", "web options strategy", "choice filling", "EAPCET counselling 2025"],
+    "readingTime": "7 min read",
+    "featured": false,
+    "content": [
+      {
+        "type": "tldr",
+        "text": "The web options stage is the single most important step in EAPCET counselling. Add at least 30–50 choices, place dream colleges first, and always include safe options at the end. Use RankSure's predictor to identify your Safe (75%+), Medium (40–74%), and Reach (<40%) colleges before filling options. Never leave the safe category empty — that's how students lose seats."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "What Are Web Options in EAPCET Counselling?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Web options (also called 'choice filling') is the online process where you select your preferred college-branch combinations in order of priority. The APSCHE allotment algorithm processes these preferences against seat availability and cutoff ranks to determine your final allotment. The order matters — your first choice is tried first, then second, and so on."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Step 1: Research Before You Fill"
+      },
+      {
+        "type": "paragraph",
+        "text": "Before logging into the counselling portal, spend time researching. This is where most students make mistakes — they fill options hastily without data. Use these RankSure tools for research:"
+      },
+      {
+        "type": "list",
+        "title": "Pre-filling research checklist:",
+        "items": [
+          "Enter your rank in RankSure's predictor (/) → note all Safe, Medium, and Reach colleges",
+          "Open each college's page and check the 3-year cutoff trend — is it getting harder or easier?",
+          "Use the Compare tool (/compare) to compare fees and placement ratings of your top choices",
+          "Check fee reimbursement eligibility (/tools/reimbursement) — this affects which colleges are affordable",
+          "Note down the college codes and branch codes from the official APSCHE website"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Step 2: The Ideal Web Options Structure"
+      },
+      {
+        "type": "paragraph",
+        "text": "Your web options should follow a pyramid structure. Here's the proven strategy that maximizes your chances while protecting against worst-case scenarios:"
+      },
+      {
+        "type": "table",
+        "headers": ["Position", "Category", "What to Include", "How Many"],
+        "rows": [
+          ["1–5", "Dream (Reach)", "Your absolute top choices, even if probability is low", "3–5"],
+          ["6–15", "Ambitious (Medium)", "Colleges where you have 40–74% chance", "8–10"],
+          ["16–30", "Realistic (Safe)", "Colleges where you have 75%+ chance", "12–15"],
+          ["31–50", "Safety Net", "Any acceptable college to avoid losing a seat entirely", "10–20"]
+        ]
+      },
+      {
+        "type": "callout",
+        "text": "RankSure's predictor automatically categorizes colleges into Safe, Medium, and Reach for your specific rank. Use this directly to build your web options list."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Step 3: Ordering Within Categories"
+      },
+      {
+        "type": "list",
+        "title": "Within each category, order by:",
+        "items": [
+          "Branch preference first (if you prefer CSE over ECE, list CSE at the same college before ECE)",
+          "Placement rating (check on RankSure's college pages)",
+          "Fee affordability (compare annual fees using the Compare tool)",
+          "Location preference (proximity to home, city advantages)",
+          "College reputation and infrastructure"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Common Mistakes That Cost Students Seats"
+      },
+      {
+        "type": "list",
+        "title": "",
+        "items": [
+          "Adding only 5–10 options: If none match, you get nothing. Always add 30+.",
+          "Skipping Safe colleges: Even if your rank is strong, cutoffs fluctuate. Always include safe choices.",
+          "Ordering by college name instead of preference: The system processes in your specified order. Put your best choices first.",
+          "Not checking fee reimbursement: A ₹1.5L/year college might be free if you qualify for Vidya Deevena.",
+          "Filling options without using a predictor: Don't guess — use RankSure's data-backed predictions.",
+          "Not saving/locking options before the deadline: Only the final locked version is processed."
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Can I Change Web Options After Saving?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Yes! You can modify and re-save your web options unlimited times before the deadline. Only the final locked version is considered for allotment. Use this flexibility to refine your choices — discuss with parents, seniors, and use RankSure to compare options."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "After Allotment: What to Do"
+      },
+      {
+        "type": "list",
+        "title": "Once you receive your allotment:",
+        "items": [
+          "Self-report online within the deadline (don't wait until the last day)",
+          "If satisfied: Report to the college and pay the tuition fee to confirm admission",
+          "If partially satisfied: Choose 'Float' — keep this seat but try for a better one in the next round",
+          "If unsatisfied: Choose 'Slide' or wait for the next round, but understand the risk of losing your current seat"
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How many web options should I fill in EAPCET counselling?",
+        "a": "Fill at least 30–50 web options for maximum safety. Include a mix of Dream (3–5), Ambitious (8–10), Realistic (12–15), and Safety Net (10–20) choices."
+      },
+      {
+        "q": "Can I change my web options after submitting?",
+        "a": "Yes, you can modify your choices unlimited times before the deadline. Only the final locked version counts."
+      },
+      {
+        "q": "Should I prioritize branch or college in web options?",
+        "a": "It depends on your rank. For ranks under 30,000, branch and college both matter. For ranks above 30,000, prioritize a good college with strong placements over a specific branch name."
+      },
+      {
+        "q": "What happens if I don't get any of my web options?",
+        "a": "If none of your options are matched, you won't receive a seat in that round. You can participate in subsequent rounds or spot counselling. This is why adding 30+ options is critical."
+      }
+    ]
+  },
+  {
+    "slug": "vidya-deevena-fee-reimbursement-2025-eligibility-process",
+    "title": "AP Vidya Deevena Scheme 2025 — Eligibility, Documents & How to Apply",
+    "description": "Complete guide to AP Vidya Deevena fee reimbursement scheme 2025. Check eligibility criteria, required documents, application process, income limits, and covered colleges. Save lakhs on engineering education.",
+    "date": "2025-07-01",
+    "updated": "2025-07-01",
+    "author": "RankSure Team",
+    "category": "Scholarships",
+    "tags": ["Vidya Deevena", "fee reimbursement", "AP scholarship", "engineering scholarship 2025"],
+    "readingTime": "8 min read",
+    "featured": true,
+    "content": [
+      {
+        "type": "tldr",
+        "text": "AP Vidya Deevena is a fee reimbursement scheme by the Andhra Pradesh government that covers tuition fees for eligible engineering students. Eligible categories: BC, SC, ST, EBC, Minority, and Kapu with family income below ₹2.5 lakh/year. Covers most APSCHE-approved private and government colleges. Apply through the Vidya Deevena portal after college admission. Use RankSure's eligibility checker (/tools/reimbursement) to instantly check if you qualify."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "What is AP Vidya Deevena?"
+      },
+      {
+        "type": "paragraph",
+        "text": "AP Vidya Deevena (also known as Jagananna Vidya Deevena) is a fee reimbursement scheme launched by the Andhra Pradesh government. It reimburses 100% of tuition fees for eligible students pursuing professional courses like B.Tech, B.Pharmacy, MBA, and others at APSCHE-approved colleges. The amount is directly credited to the college, so students don't need to pay tuition fees upfront."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Eligibility Criteria"
+      },
+      {
+        "type": "table",
+        "headers": ["Criterion", "Requirement"],
+        "rows": [
+          ["Domicile", "Must be a resident of Andhra Pradesh"],
+          ["Category", "SC, ST, BC, EBC, Minority, Kapu, or Disabled"],
+          ["Family Income", "Below ₹2.5 lakh per annum"],
+          ["Course", "B.Tech, B.Pharmacy, MBA, MCA, or other approved professional courses"],
+          ["College", "Must be APSCHE-approved and recognized by AICTE"],
+          ["Admission", "Must have secured admission through EAPCET counselling (convener quota)"]
+        ]
+      },
+      {
+        "type": "callout",
+        "text": "Not sure if you qualify? Use RankSure's instant eligibility checker at /tools/reimbursement. Enter your category and family income to see all schemes you're eligible for — including Vidya Deevena, TS ePASS, PM YASASVI, and more."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "How Much Does Vidya Deevena Cover?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Vidya Deevena reimburses 100% of tuition fees as specified by the government fee regulation committee. For engineering (B.Tech), this typically covers the full annual tuition fee at most private colleges — which can range from ₹35,000 to ₹1,50,000 per year depending on the college category. Over 4 years, this can save ₹1.4 to ₹6 lakh per student."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Required Documents"
+      },
+      {
+        "type": "list",
+        "title": "Keep these documents ready for Vidya Deevena application:",
+        "items": [
+          "Aadhaar Card (linked to mobile number)",
+          "Income Certificate issued by MRO (Mandal Revenue Officer)",
+          "Caste Certificate (for category-based eligibility)",
+          "College admission receipt / fee structure",
+          "Bank account details (mother's account preferred — linked to Aadhaar)",
+          "EAPCET allotment order",
+          "SSC and Intermediate marks memos",
+          "Study certificates (7 years)",
+          "Passport-size photographs"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Application Process"
+      },
+      {
+        "type": "list",
+        "title": "Step-by-step process:",
+        "items": [
+          "Step 1: Secure admission through EAPCET counselling",
+          "Step 2: Report to the allotted college and complete admission formalities",
+          "Step 3: College will register you on the Vidya Deevena portal",
+          "Step 4: Verify your details on the Vidya Deevena website using your Aadhaar number",
+          "Step 5: Submit original documents at the college for verification",
+          "Step 6: After verification, fee amount is released to the college directly",
+          "Step 7: Track your reimbursement status on the Vidya Deevena portal"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Vidya Deevena vs TS ePASS — Key Differences"
+      },
+      {
+        "type": "table",
+        "headers": ["Feature", "AP Vidya Deevena", "TS ePASS"],
+        "rows": [
+          ["State", "Andhra Pradesh", "Telangana"],
+          ["Income Limit", "₹2.5 lakh/year", "Varies by category (₹1–2 lakh)"],
+          ["Coverage", "100% tuition fees", "100% tuition fees"],
+          ["Categories", "SC, ST, BC, EBC, Minority, Kapu", "SC, ST, BC, EBC"],
+          ["Disbursement", "Directly to college", "To student's bank account"],
+          ["Application", "Through college", "Online at telanganaepass.cgg.gov.in"]
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Important Tips"
+      },
+      {
+        "type": "list",
+        "title": "",
+        "items": [
+          "Get your income certificate BEFORE counselling starts — MRO offices get crowded later",
+          "Ensure your Aadhaar is linked to your current mobile number for OTP verification",
+          "Keep your mother's bank account details ready — Vidya Deevena often credits to the mother's account",
+          "If your income is slightly above ₹2.5 lakh, check PM YASASVI (up to ₹8 lakh limit) or other central schemes",
+          "Management quota seats are generally NOT eligible for fee reimbursement — get admission through counselling",
+          "Use RankSure to plan your college choices considering both cutoff probability AND fee reimbursement eligibility"
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is the income limit for AP Vidya Deevena 2025?",
+        "a": "The family income limit for AP Vidya Deevena is ₹2.5 lakh per annum. This is verified through an income certificate issued by the MRO (Mandal Revenue Officer)."
+      },
+      {
+        "q": "Does Vidya Deevena cover private college fees?",
+        "a": "Yes, Vidya Deevena covers tuition fees at most APSCHE-approved private engineering colleges. The reimbursement amount is based on the government-regulated fee structure."
+      },
+      {
+        "q": "Can OC (General) category students get Vidya Deevena?",
+        "a": "No, Vidya Deevena is for SC, ST, BC, EBC, Minority, Kapu, and Disabled categories only. OC students can check the National Merit Scholarship or other central schemes."
+      },
+      {
+        "q": "How long does it take to receive fee reimbursement?",
+        "a": "After successful verification, reimbursement is typically processed within 2–4 months. The amount is credited directly to the college or the student's/mother's bank account."
+      },
+      {
+        "q": "Is Vidya Deevena available for management quota admissions?",
+        "a": "Generally no. Vidya Deevena covers students admitted through the EAPCET counselling process (convener quota). Management quota admissions are usually not eligible."
+      }
+    ]
+  },
+  {
+    "slug": "cse-vs-ece-vs-aiml-which-branch-after-eapcet-2025",
+    "title": "CSE vs ECE vs AI/ML — Which Branch Should You Choose After EAPCET 2025?",
+    "description": "Detailed comparison of CSE, ECE, and AI/ML branches for EAPCET 2025 students. Covers scope, salaries, placement rates, cutoff competitiveness, and career paths. Data-driven advice for branch selection.",
+    "date": "2025-07-05",
+    "updated": "2025-07-05",
+    "author": "RankSure Team",
+    "category": "Branch Guidance",
+    "tags": ["CSE vs ECE", "AI ML scope", "branch selection", "EAPCET branches 2025", "best branch engineering"],
+    "readingTime": "9 min read",
+    "featured": false,
+    "content": [
+      {
+        "type": "tldr",
+        "text": "CSE remains the highest-demand branch with the best placements and lowest cutoffs. ECE is the second most competitive and offers a strong career path in semiconductors, VLSI, and embedded systems. AI/ML is a fast-growing specialization within CSE that's seeing increasing demand from tech companies. Your choice should depend on your rank, interest, and long-term career goals — not just hype. Use RankSure to compare branch-wise cutoffs at your target colleges."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "The Big Picture: Branch Popularity in EAPCET 2025"
+      },
+      {
+        "type": "paragraph",
+        "text": "Based on 3 years of EAPCET cutoff data from 328+ colleges, here's how branches rank by competitiveness (lower closing rank = higher demand):"
+      },
+      {
+        "type": "table",
+        "headers": ["Rank", "Branch", "Demand Level", "Typical Cutoff Range (OC)"],
+        "rows": [
+          ["1", "CSE (Computer Science)", "🔴 Very High", "Varies by college, always the lowest"],
+          ["2", "CSE (AI & ML)", "🔴 Very High", "Close to CSE, sometimes higher"],
+          ["3", "CSE (Data Science)", "🟡 High", "Slightly above CSE"],
+          ["4", "IT (Information Technology)", "🟡 High", "10–20% above CSE cutoff"],
+          ["5", "ECE (Electronics & Comm.)", "🟡 High", "15–30% above CSE cutoff"],
+          ["6", "EEE (Electrical)", "🟢 Moderate", "30–50% above CSE"],
+          ["7", "Mechanical", "🟢 Moderate", "40–60% above CSE"],
+          ["8", "Civil", "⚪ Lower demand", "50–80% above CSE"]
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "CSE — Computer Science and Engineering"
+      },
+      {
+        "type": "paragraph",
+        "text": "CSE is the undisputed king of engineering branches in 2025. The IT industry's continued growth, rising demand for software developers, and lucrative salaries make CSE the most sought-after branch. Starting salaries for CSE graduates from good colleges range from ₹4–15 LPA, with top performers getting ₹20–50+ LPA at product companies."
+      },
+      {
+        "type": "list",
+        "title": "CSE career paths:",
+        "items": [
+          "Software Development (Web, Mobile, Systems)",
+          "Data Science & Analytics",
+          "Cloud Computing & DevOps",
+          "Cybersecurity",
+          "AI/ML Engineering",
+          "Product Management (after experience)"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "ECE — Electronics and Communication Engineering"
+      },
+      {
+        "type": "paragraph",
+        "text": "ECE is a versatile branch with strong fundamentals in both hardware and software. With India's semiconductor push (₹76,000 crore investment under the India Semiconductor Mission), ECE graduates are in high demand for chip design, VLSI, and embedded systems roles. ECE graduates can also transition into software/IT roles."
+      },
+      {
+        "type": "list",
+        "title": "ECE career paths:",
+        "items": [
+          "VLSI Design & Semiconductor Industry",
+          "Embedded Systems & IoT",
+          "Telecom & 5G Networks",
+          "Signal Processing & Image Recognition",
+          "Software Development (many ECE grads work in IT)",
+          "GATE → PSUs (BSNL, ISRO, DRDO)"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "AI & ML — Artificial Intelligence and Machine Learning"
+      },
+      {
+        "type": "paragraph",
+        "text": "AI/ML is a specialization within CSE that's exploded in popularity. It covers machine learning algorithms, deep learning, natural language processing, and computer vision. The curriculum is similar to CSE with additional focus on data science and AI frameworks. Starting salaries are comparable to CSE, sometimes higher for specialized roles."
+      },
+      {
+        "type": "callout",
+        "text": "Important: AI/ML as a separate B.Tech branch is relatively new. Verify that the college offering it has updated labs, qualified faculty, and placement records for AI/ML graduates specifically. Use RankSure's college pages to check placement ratings."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Head-to-Head Comparison"
+      },
+      {
+        "type": "table",
+        "headers": ["Factor", "CSE", "ECE", "AI/ML"],
+        "rows": [
+          ["Placement Rate", "⭐⭐⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐"],
+          ["Average Starting Salary", "₹4–8 LPA", "₹3–6 LPA", "₹4–8 LPA"],
+          ["EAPCET Cutoff", "Lowest (most competitive)", "15–30% higher than CSE", "Close to CSE"],
+          ["Industry Demand (2025)", "Very High", "High (growing with semiconductors)", "Very High"],
+          ["GATE/PSU Options", "Moderate", "Strong (ISRO, DRDO, BSNL)", "Limited"],
+          ["Course Maturity", "Well-established", "Well-established", "Newer, verify college quality"],
+          ["Flexibility", "Strong in software", "Hardware + Software", "Specialized in AI/Data"]
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "How Your EAPCET Rank Affects Branch Choice"
+      },
+      {
+        "type": "list",
+        "title": "",
+        "items": [
+          "Rank under 10,000: You can get CSE at top colleges. Choose your dream college.",
+          "Rank 10,000–25,000: CSE at good colleges or ECE at top colleges. Compare placements.",
+          "Rank 25,000–50,000: Consider ECE/IT at established colleges over CSE at lower-ranked ones.",
+          "Rank 50,000+: Focus on college quality over branch name. A good ECE from a reputed college beats CSE from an unknown one.",
+          "Use RankSure's predictor (/) to see exactly which college-branch combinations are Safe, Medium, and Reach for your specific rank."
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "The Bottom Line"
+      },
+      {
+        "type": "paragraph",
+        "text": "Choose based on genuine interest, not just peer pressure or trends. If you love coding and software, go for CSE. If you're fascinated by electronics, circuits, and hardware, ECE is excellent. If you specifically want to work in AI/Data Science, the AI/ML branch gives focused training — but verify the college's track record first. Whatever you choose, use RankSure to find the best college for your rank."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Is CSE better than ECE in 2025?",
+        "a": "CSE generally offers higher placement rates and starting salaries in software. However, ECE is gaining strength with India's semiconductor push. Both are excellent choices — CSE if you prefer software, ECE if you like electronics or want GATE/PSU options."
+      },
+      {
+        "q": "Is AI/ML worth choosing over regular CSE?",
+        "a": "AI/ML gives specialized training in a high-demand field. However, regular CSE covers AI/ML as electives too. Choose the AI/ML branch only if the college has good faculty and placement records specifically for that branch."
+      },
+      {
+        "q": "Can ECE students get IT jobs?",
+        "a": "Yes, many ECE graduates work in IT companies. The strong analytical and technical foundation of ECE makes the transition easy. Most IT companies hire from all engineering branches."
+      },
+      {
+        "q": "What is the salary difference between CSE and ECE freshers?",
+        "a": "CSE freshers typically earn ₹4–8 LPA at mass recruiters, while ECE freshers earn ₹3–6 LPA. Top performers in both branches can earn ₹15–50+ LPA at product companies."
+      }
+    ]
+  },
+  {
+    "slug": "eapcet-cutoff-trends-2023-2025-analysis",
+    "title": "EAPCET Cutoff Trends 2023–2025 — Are Ranks Getting Harder?",
+    "description": "Data analysis of AP EAPCET cutoff trends over 3 years. Find out which colleges and branches are getting more competitive, which are getting easier, and how to use these trends during counselling.",
+    "date": "2025-07-10",
+    "updated": "2025-07-10",
+    "author": "RankSure Team",
+    "category": "Data Analysis",
+    "tags": ["EAPCET cutoff trends", "cutoff analysis", "EAPCET 2023 2024 2025", "rank trends"],
+    "readingTime": "6 min read",
+    "featured": false,
+    "content": [
+      {
+        "type": "tldr",
+        "text": "Analysis of 6,243 official cutoff records from 2023–2025 reveals that CSE cutoffs are getting harder (lower closing ranks) at top colleges, while many mid-tier colleges are seeing stable or slightly easier cutoffs. New branches like AI/ML and Data Science are rapidly becoming more competitive. ECE cutoffs have stabilized. Use RankSure's college pages to check 3-year trends for any specific college and branch."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "The Data Behind This Analysis"
+      },
+      {
+        "type": "paragraph",
+        "text": "This analysis is based on 6,243 official AP EAPCET closing rank records from 3 years of APSCHE allotments (2023, 2024, and 2025). We tracked cutoff changes across 328+ colleges and 117 branches to identify meaningful trends. RankSure's prediction model uses these same trends to forecast your admission probability."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Overall Trend: Competition is Increasing"
+      },
+      {
+        "type": "paragraph",
+        "text": "Across all colleges and branches, the average closing rank has decreased by approximately 5–8% each year (meaning more competition). This is driven by increasing awareness of EAPCET, better exam preparation resources, and growing demand for engineering education in AP."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Branch-wise Trends"
+      },
+      {
+        "type": "table",
+        "headers": ["Branch", "3-Year Trend", "Interpretation"],
+        "rows": [
+          ["CSE", "📉 Getting harder (−8% avg)", "Demand continues to rise. Need lower rank than before."],
+          ["CSE (AI/ML)", "📉📉 Getting much harder (−15%)", "Fastest-growing branch. Very competitive at top colleges."],
+          ["ECE", "➡️ Stable (±2%)", "Steady demand. Cutoffs predictable."],
+          ["EEE", "📈 Slightly easier (+3%)", "Declining demand at some colleges."],
+          ["Mechanical", "📈 Getting easier (+8%)", "Significant drop in demand over 3 years."],
+          ["Civil", "📈📈 Much easier (+12%)", "Lowest demand among core branches."],
+          ["IT", "📉 Getting harder (−6%)", "Growing alongside CSE."]
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "What This Means for Your Counselling Strategy"
+      },
+      {
+        "type": "list",
+        "title": "How to use trend data during web options:",
+        "items": [
+          "If a college's CSE cutoff has been dropping (getting harder) every year, your 2024 rank may not be enough in 2025 — include it as a Reach option",
+          "If a college's cutoff has been rising (getting easier), it might be a hidden gem — include it as a Safe option",
+          "New branches (AI/ML, Data Science) at established colleges are getting competitive fast — don't assume last year's easy cutoff will repeat",
+          "EEE and Mechanical cutoffs rising means these branches are easier to get into — good option if you're interested",
+          "Check each college's specific trend on RankSure — national trends don't apply equally to all colleges"
+        ]
+      },
+      {
+        "type": "callout",
+        "text": "Every college page on RankSure shows the 3-year cutoff trend chart. Visit /college/[name] or use the predictor to see trends for your target colleges."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Colleges Getting Harder vs. Easier"
+      },
+      {
+        "type": "paragraph",
+        "text": "Top-tier colleges (with placement ratings of 4+ stars) are universally getting harder — their brand recognition attracts more applicants each year. Meanwhile, some mid-tier colleges with improving infrastructure and placement records are seeing stable cutoffs, making them excellent value choices."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "How RankSure Accounts for These Trends"
+      },
+      {
+        "type": "paragraph",
+        "text": "RankSure's prediction engine doesn't just use last year's cutoff. It applies a Trend-Adjusted Normal Distribution model that weights all 3 years and accounts for year-over-year volatility. If a college's cutoff is consistently dropping, the model predicts a continued trend. If it's volatile, the model widens the probability range."
+      },
+      {
+        "type": "paragraph",
+        "text": "This is why RankSure shows probability percentages instead of simple yes/no answers — a college might have a 65% chance based on trends, which is more useful than just saying 'your rank was above last year's cutoff.'"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Are EAPCET cutoffs getting harder every year?",
+        "a": "On average yes, especially for CSE and AI/ML branches at top colleges. However, some branches (Mechanical, Civil) and mid-tier colleges are seeing stable or easier cutoffs. Check specific trends on RankSure's college pages."
+      },
+      {
+        "q": "Can I use last year's cutoff to predict my chances?",
+        "a": "Using only last year's cutoff is unreliable because cutoffs fluctuate. RankSure uses 3 years of data and trend analysis for more accurate predictions."
+      },
+      {
+        "q": "Which branches are becoming less competitive?",
+        "a": "Mechanical (+8%) and Civil (+12%) branches have seen increasing cutoffs (easier to get) over the past 3 years. EEE is slightly easier as well."
+      },
+      {
+        "q": "Why are AI/ML cutoffs dropping so fast?",
+        "a": "AI/ML is the fastest-growing tech field with high-salary jobs. As awareness grows among students, demand for AI/ML seats increases, driving cutoffs lower (more competitive)."
+      }
+    ]
   }
 ]
