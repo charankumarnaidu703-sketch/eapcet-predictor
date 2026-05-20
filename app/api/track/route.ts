@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { supabase } from '@/lib/supabase';
 
 export async function POST(req: Request) {
   try {
@@ -17,13 +15,16 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: true, mode: 'development' });
     }
 
-    // Production: Save to database
-    await prisma.analyticsEvent.create({
-      data: {
-        event,
-        metadata: metadata || {},
-      },
-    });
+    // Production: Save to Supabase
+    const { error } = await supabase
+      .from('analytics_events')
+      .insert({ event, metadata: metadata || {} });
+
+    if (error) {
+      console.error('Supabase analytics insert error:', error.message);
+      // Don't fail the request if analytics fails
+      return NextResponse.json({ success: true, warning: 'Analytics not saved' });
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {

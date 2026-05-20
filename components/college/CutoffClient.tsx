@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
-import type { EapcetCutoff } from '@prisma/client';
 
 interface CutoffRow {
   id: number;
