@@ -134,6 +134,7 @@ export default async function CollegeCutoffPage({ params }: PageProps) {
           <a href="/" className="nav-logo">🎯 Rank<span>Sure</span></a>
           <ul className="nav-links">
             <li><a href="/">← Predictor</a></li>
+            <li><a href="/blog">Guides</a></li>
             <li><a href="/tools/counselling">Counselling</a></li>
             <li><a href="/tools/reimbursement">Fee Aid</a></li>
           </ul>
