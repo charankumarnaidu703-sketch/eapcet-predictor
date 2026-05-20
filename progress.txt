@@ -1,0 +1,130 @@
+# EAPCET Predictor — Build Progress
+
+============================================================
+## ✅ STEP 1 COMPLETE — Project Setup + Database + Data Import Pipeline
+Date: 2026-05-17
+============================================================
+
+### What was done:
+- Next.js 14 project initialized (TypeScript, Tailwind, App Router)
+- Prisma v5 schema: EapcetCutoff (9 cols) + AnalyticsEvent
+- .env with Supabase creds, .gitignore secured
+- lib/prisma.ts singleton, types/index.ts, lib/utils.ts
+- scripts/convert_csv.py → 6,243 rows → data/eapcet_data.json ✅
+- scripts/supabase_import.py → REST API bulk insert ✅
+- All placeholder files created, 0 TypeScript errors ✅
+
+### Database (Supabase MCP):
+- Project: EAPCET College Predictor
+- Project ID: rsxtraxrabtiqyiiiehk
+- Region: ap-south-1
+- Tables: eapcet_cutoffs (6,243 rows), analytics_events
+- Stats: 328 colleges, 117 branches, 26 locations, years 2021–2025
+
+============================================================
+## ✅ STEP 2 COMPLETE — Homepage + Rank Input Form + Prediction Engine
+Date: 2026-05-18
+============================================================
+
+### What was done:
+
+**2A — Supabase Client**
+- lib/supabase.ts: createClient singleton using env vars
+
+**2B — Prediction Engine**
+- lib/prediction.ts: predictColleges(), getBranches(), getLocations()
+- Algorithm: queries latest year (2025/2024), groups by college+branch
+- Probability: Safe / Medium / Reach with % score
+  * Safe 95%:   rank < closing * 0.75
+  * Safe 80%:   rank < closing * 0.90
+  * Medium 65%: rank < closing * 1.00
+  * Medium 40%: rank < closing * 1.15
+  * Reach 20%:  rank < closing * 1.30
+  * Reach 5%:   rank > closing * 1.30
+
+**2C — Design System**
+- app/globals.css: dark glassmorphism theme
+  * CSS vars: --primary #6366f1, --safe #10b981, --medium #f59e0b, --reach #ef4444
+  * Components: Nav, Hero, Stats, FormCard, CollegeCards, FilterChips, Footer
+  * Responsive grid, probability bars, star ratings
+
+**2D — Homepage (app/page.tsx)**
+- Hero: animated badge, H1, subtitle, 4 stats counters
+- Form: rank input + category + gender + branch + location dropdowns
+- Results: filter chips (All/Safe/Medium/Reach) + college card grid
+- Each card: name, branch, location, fees, closing rank, placement stars, prob bar
+- Empty state, loading spinner, error handling
+- Features section (when no results shown)
+
+**2E — Verified in browser**
+- Rank 25,000 → 815 results (788 Safe, 14 Medium, 13 Reach) ✅
+- Filter chips working ✅
+- College cards with probability bars rendering ✅
+- 0 TypeScript errors ✅
+- Dev server: http://localhost:3000 ✅
+
+============================================================
+## ✅ STEP 3 COMPLETE — /api/predict Server Route (Cached)
+## ✅ STEP 4 COMPLETE — College Detail Page /college/[name]
+Date: 2026-05-18
+============================================================
+
+### Step 3 — API Route:
+- app/api/predict/route.ts: POST → predictions, GET → filter options
+- Cache headers: s-maxage=300, stale-while-revalidate=600
+- Scoring: Safe/Medium/Reach with % probability
+- app/api/college/route.ts: GET → full college cutoff data
+
+### Step 4 — College Detail Page:
+- app/college/[name]/page.tsx
+- SVG trend chart per branch (3-year closing rank visualization)
+- Branch sidebar + year tab selector
+- Full cutoff table sorted by closing rank
+- Breadcrumb navigation
+
+### Verified:
+- GET /api/predict → 59 branches, 27 locations ✅
+- POST /api/predict rank=50000 EEE → 201 results ✅
+- GET /api/college → 21 rows, 7 branches, years 2023-2025 ✅
+- College cards clickable → opens /college/[slug] ✅
+- 0 TypeScript errors ✅
+
+============================================================
+## ✅ STEP 6 COMPLETE — College Comparison Mode
+Date: 2026-05-18
+============================================================
+
+### Files created per spec:
+- app/compare/page.tsx — Server Component, reads "colleges" param, fetches Supabase
+- components/college/ComparisonTable.tsx — Battle-card table (cols=colleges, rows=data)
+- components/college/RecommendationCard.tsx — Composite score + WhatsApp share
+- components/college/CompareClient.tsx — sessionStorage hydration wrapper
+- lib/scholarshipRules.ts — 10 schemes + checkEligibility() engine
+
+### Step 6 spec items completed:
+- 6A: Server Component parses comma-separated college names ✅
+- 6B: Comparison table — Location, Type, Branches, Closing Rank, Probability, Fees, Rating ✅
+- 6B: Best value highlighted in green with "✓ BEST" label ✅
+- 6C: Composite score (prob 40% + placement 35% + fee 25%) ✅
+- 6C: Progress bars per college across 3 dimensions ✅
+- 6D: WhatsApp share button with pre-filled message ✅
+- 6E: Horizontal scroll table, sticky first column on mobile ✅
+- 6F: "Add Another College" button when < 3 colleges ✅
+- sessionStorage rank integration from homepage ✅
+- 0 TypeScript errors ✅
+
+============================================================
+## ⏳ STEP 7 NEXT — Transport and Route (Google Maps)
+============================================================
+
+### Note: Use Supabase MCP for ALL database operations
+
+Roadmap:
+  STEP 5  → Comparison Mode /compare
+  STEP 6  → Fee Reimbursement Checker (/tools/reimbursement)
+  STEP 7  → Counselling Countdown (/tools/counselling)
+  STEP 8  → SEO Engine (sitemap, schema.org, meta, robots.txt)
+  STEP 9  → WhatsApp Share + Viral Features
+  STEP 10 → Google AdSense Integration
+  STEP 11 → Analytics + Performance + Deployment (Vercel)
+

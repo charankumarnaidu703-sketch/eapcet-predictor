@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model EapcetCutoff {
+  id               Int     @id @default(autoincrement())
+  college_name     String
+  type             String
+  year             Int
+  branch           String
+  opening_rank     String
+  closing_rank     String
+  annual_fees      String
+  placement_rating Float?
+  location         String
+
+  @@map("eapcet_cutoffs")
+  @@index([year, branch])
+  @@index([college_name])
+  @@index([closing_rank])
+  @@index([location])
+}
+
+model AnalyticsEvent {
+  id        Int      @id @default(autoincrement())
+  event     String
+  metadata  Json?
+  createdAt DateTime @default(now())
+}
