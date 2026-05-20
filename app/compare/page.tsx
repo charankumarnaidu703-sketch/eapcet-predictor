@@ -3,6 +3,7 @@
  */
 import { createClient } from '@supabase/supabase-js';
 import type { Metadata } from 'next';
+import MobileNav from '@/components/MobileNav';
 import CompareClient from '@/components/college/CompareClient';
 
 const supabase = createClient(
@@ -72,6 +73,7 @@ export default async function ComparePage({ searchParams }: PageProps) {
             <li><a href="/tools/counselling">Counselling</a></li>
             <li><a href="/tools/reimbursement">Fee Aid</a></li>
           </ul>
+          <MobileNav />
         </div>
       </nav>
 

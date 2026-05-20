@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { supabase } from '@/lib/supabase';
 import CutoffClient from '@/components/college/CutoffClient';
 import Breadcrumb from '@/components/Breadcrumb';
+import MobileNav from '@/components/MobileNav';
 
 interface PageProps {
   params: Promise<{ name: string }>;
@@ -138,6 +139,7 @@ export default async function CollegeCutoffPage({ params }: PageProps) {
             <li><a href="/tools/counselling">Counselling</a></li>
             <li><a href="/tools/reimbursement">Fee Aid</a></li>
           </ul>
+          <MobileNav />
         </div>
       </nav>
 

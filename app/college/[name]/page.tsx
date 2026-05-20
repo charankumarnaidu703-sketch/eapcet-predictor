@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { supabase } from '@/lib/supabase';
 import CollegeDetailClient from '@/components/college/CollegeDetailClient';
+import MobileNav from '@/components/MobileNav';
 
 interface PageProps {
   params: Promise<{ name: string }>;
@@ -143,6 +144,7 @@ export default async function CollegeDetailPage({ params }: PageProps) {
             <li><a href="/tools/scholarships">Scholarships</a></li>
             <li><a href="/tools/reimbursement">Fee Aid</a></li>
           </ul>
+          <MobileNav />
         </div>
       </nav>
 

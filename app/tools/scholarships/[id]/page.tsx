@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SCHOLARSHIP_SCHEMES } from '@/lib/scholarshipRules';
+import MobileNav from '@/components/MobileNav';
 
 export const revalidate = 86400; // 24 hours
 
@@ -46,6 +47,7 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
             <li><a href="/tools/scholarships">Scholarships</a></li>
             <li><a href="/tools/reimbursement">Fee Aid</a></li>
           </ul>
+          <MobileNav />
         </div>
       </nav>
 

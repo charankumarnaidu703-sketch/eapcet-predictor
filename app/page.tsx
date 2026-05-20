@@ -4,6 +4,7 @@ import type { PredictResult } from '@/app/api/predict/route';
 import CounsellingWidget from '@/components/CounsellingWidget';
 import ShareButton from '@/components/ShareButton';
 import FilterBar from '@/components/college/FilterBar';
+import MobileNav from '@/components/MobileNav';
 import { generatePredictionShareText, generateCollegeShareText } from '@/lib/share';
 const CATEGORIES = ['OC','BC-A','BC-B','BC-C','BC-D','BC-E','SC','ST'];
 const GENDERS    = ['Male','Female'];
@@ -163,6 +164,7 @@ export default function HomePage() {
             <li><a href="/tools/scholarships">Scholarships</a></li>
             <li><a href="/tools/reimbursement">Fee Aid</a></li>
           </ul>
+          <MobileNav />
         </div>
       </nav>
 
