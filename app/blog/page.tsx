@@ -32,7 +32,7 @@ export default function BlogPage() {
       </nav>
 
       {/* Hero */}
-      <div style={{ background: 'var(--navy)', padding: '48px 24px 60px' }}>
+      <div className="blog-hero" style={{ background: 'var(--navy)', padding: '48px 24px 60px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <Breadcrumb
             variant="dark"
@@ -61,12 +61,13 @@ export default function BlogPage() {
       </div>
 
       {/* Article Grid */}
-      <main style={{ maxWidth: 900, margin: '-24px auto 60px', padding: '0 24px', position: 'relative', zIndex: 10 }}>
+      <main className="blog-main" style={{ maxWidth: 900, margin: '-24px auto 60px', padding: '0 24px', position: 'relative', zIndex: 10 }}>
         <div style={{ display: 'grid', gap: 20 }}>
           {blogPosts.map((post) => (
             <a
               key={post.slug}
               href={`/blog/${post.slug}`}
+              className="blog-card"
               style={{
                 display: 'block', background: '#fff', border: '1px solid var(--line)',
                 borderRadius: 'var(--r2)', padding: '28px 28px 24px',

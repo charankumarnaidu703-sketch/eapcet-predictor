@@ -46,7 +46,7 @@ function renderContent(block: any, i: number) {
   switch (block.type) {
     case 'tldr':
       return (
-        <div key={i} style={{
+        <div key={i} className="blog-tldr" style={{
           background: 'linear-gradient(135deg, rgba(200,134,42,.08), rgba(200,134,42,.03))',
           border: '1px solid rgba(200,134,42,.2)',
           borderLeft: '4px solid var(--gold)',
@@ -106,7 +106,7 @@ function renderContent(block: any, i: number) {
 
     case 'callout':
       return (
-        <div key={i} style={{
+        <div key={i} className="blog-callout" style={{
           background: 'var(--cream)', border: '1px solid var(--line)',
           borderLeft: '4px solid var(--navy)', borderRadius: 'var(--r2)',
           padding: '18px 22px', marginBottom: 24,
@@ -119,8 +119,8 @@ function renderContent(block: any, i: number) {
 
     case 'table':
       return (
-        <div key={i} style={{ overflowX: 'auto', marginBottom: 24 }}>
-          <table style={{
+        <div key={i} className="blog-table-wrapper" style={{ overflowX: 'auto', marginBottom: 24 }}>
+          <table className="blog-table" style={{
             width: '100%', borderCollapse: 'collapse',
             fontFamily: 'Plus Jakarta Sans,sans-serif', fontSize: '.85rem',
           }}>
@@ -208,7 +208,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       </nav>
 
       {/* Hero */}
-      <div style={{ background: 'var(--navy)', padding: '48px 24px 60px' }}>
+      <div className="blog-hero" style={{ background: 'var(--navy)', padding: '48px 24px 60px' }}>
         <div style={{ maxWidth: 780, margin: '0 auto' }}>
           <Breadcrumb
             variant="dark"
@@ -247,11 +247,11 @@ export default async function BlogPostPage({ params }: PageProps) {
       </div>
 
       {/* Article Body */}
-      <main style={{
+      <main className="blog-main" style={{
         maxWidth: 780, margin: '-24px auto 0', padding: '0 24px 60px',
         position: 'relative', zIndex: 10,
       }}>
-        <article style={{
+        <article className="blog-article" style={{
           background: '#fff', border: '1px solid var(--line)',
           borderRadius: 'var(--r2)', padding: '40px 36px',
           boxShadow: '0 4px 24px rgba(0,0,0,0.05)',
@@ -281,7 +281,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         </article>
 
         {/* CTA Banner */}
-        <div style={{
+        <div className="blog-cta-banner" style={{
           background: 'var(--navy)', borderRadius: 'var(--r2)',
           padding: '32px 28px', marginTop: 32, textAlign: 'center',
         }}>

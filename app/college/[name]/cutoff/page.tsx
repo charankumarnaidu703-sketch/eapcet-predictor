@@ -144,7 +144,7 @@ export default async function CollegeCutoffPage({ params }: PageProps) {
       </nav>
 
       {/* SECTION A — Hero */}
-      <div style={{ background: 'var(--navy)', padding: '48px 24px 60px' }}>
+      <div className="blog-hero" style={{ background: 'var(--navy)', padding: '48px 24px 60px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <Breadcrumb
             variant="dark"
@@ -174,12 +174,12 @@ export default async function CollegeCutoffPage({ params }: PageProps) {
         </div>
       </div>
 
-      <main style={{ maxWidth: 900, margin: '-24px auto 80px', padding: '0 24px', position: 'relative', zIndex: 10 }}>
+      <main className="blog-main" style={{ maxWidth: 900, margin: '-24px auto 80px', padding: '0 24px', position: 'relative', zIndex: 10 }}>
         {/* Render Client component for interactive Tabs & Charts */}
         <CutoffClient collegeName={collegeName} rows={rows} />
 
         {/* SECTION E — CTA Banner */}
-        <div style={{ marginTop: 48, background: 'var(--navy)', borderRadius: 'var(--r2)', padding: '32px 24px', textAlign: 'center', color: '#fff', boxShadow: '0 8px 24px rgba(0,0,0,0.12)' }}>
+        <div className="blog-cta-banner" style={{ marginTop: 48, background: 'var(--navy)', borderRadius: 'var(--r2)', padding: '32px 24px', textAlign: 'center', color: '#fff', boxShadow: '0 8px 24px rgba(0,0,0,0.12)' }}>
           <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: 12, fontFamily: 'Playfair Display,serif' }}>
             Check your admission chances for {collegeName}
           </h3>
@@ -217,6 +217,7 @@ export default async function CollegeCutoffPage({ params }: PageProps) {
             ].map((faq, idx) => (
               <details 
                 key={idx} 
+                className="faq-detail-item"
                 style={{ background: '#fff', border: '1px solid var(--line)', borderRadius: 'var(--r)', padding: '16px 20px', cursor: 'pointer' }}
               >
                 <summary style={{ fontWeight: 700, color: 'var(--navy)', fontSize: '1rem', outline: 'none' }}>

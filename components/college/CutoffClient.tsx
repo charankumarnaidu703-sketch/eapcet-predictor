@@ -51,19 +51,21 @@ export default function CutoffClient({ collegeName, rows }: Props) {
     <div style={{ marginTop: 24 }}>
       {/* SECTION B — Branch Selector Tabs */}
       <div
-        className="hide-scrollbar"
+        className="hide-scrollbar cutoff-branch-bar"
         style={{
           display: 'flex',
           gap: 12,
           overflowX: 'auto',
           paddingBottom: 8,
           marginBottom: 24,
+          WebkitOverflowScrolling: 'touch',
         }}
       >
         {branches.map((branch) => (
           <button
             key={branch}
             onClick={() => setSelectedBranch(branch)}
+            className={`branch-select-btn ${selectedBranch === branch ? 'active' : ''}`}
             style={{
               padding: '10px 18px',
               borderRadius: 'var(--r)',
@@ -83,7 +85,7 @@ export default function CutoffClient({ collegeName, rows }: Props) {
         ))}
       </div>
 
-      <div style={{ background: '#fff', border: '1px solid var(--line)', borderRadius: 'var(--r2)', padding: 24 }}>
+      <div className="detail-card" style={{ background: '#fff', border: '1px solid var(--line)', borderRadius: 'var(--r2)', padding: 24 }}>
         <h2 style={{ fontSize: '1.25rem', color: 'var(--navy)', marginBottom: 24, fontWeight: 800 }}>
           {selectedBranch} Cutoff Trends
         </h2>
@@ -94,7 +96,7 @@ export default function CutoffClient({ collegeName, rows }: Props) {
             <p style={{ fontSize: '0.85rem', color: 'var(--muted)', marginBottom: 12, fontWeight: 600 }}>
               Closing Rank Trend (lower = more competitive)
             </p>
-            <div style={{ height: 200, width: '100%' }}>
+            <div className="cutoff-chart-container" style={{ height: 200, width: '100%' }}>
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={chartData} margin={{ top: 10, right: 10, left: 10, bottom: 0 }}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--line)" />
@@ -131,8 +133,11 @@ export default function CutoffClient({ collegeName, rows }: Props) {
         )}
 
         {/* SECTION C — Cutoff Table */}
+        <div className="table-scroll-hint" style={{ display: 'none', alignItems: 'center', gap: 6, fontSize: '.75rem', color: 'var(--subtle)', marginBottom: 12 }}>
+          <span>Swipe horizontal to see all cutoff ranks ← →</span>
+        </div>
         <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: 500 }}>
+          <table className="college-detail-table" style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: 500 }}>
             <thead>
               <tr style={{ borderBottom: '2px solid var(--line-dk)' }}>
                 <th style={{ padding: '12px 16px', color: 'var(--subtle)', fontWeight: 600, fontSize: '0.85rem' }}>Year</th>

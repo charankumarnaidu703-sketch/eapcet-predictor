@@ -7,9 +7,10 @@ interface ShareButtonProps {
   label?: string;
   size?: 'sm' | 'md' | 'lg';
   iconOnly?: boolean;
+  className?: string;
 }
 
-export default function ShareButton({ text, label = 'Share on WhatsApp', size = 'md', iconOnly = false }: ShareButtonProps) {
+export default function ShareButton({ text, label = 'Share on WhatsApp', size = 'md', iconOnly = false, className = '' }: ShareButtonProps) {
   
   const handleShare = async () => {
     // Fire analytics event

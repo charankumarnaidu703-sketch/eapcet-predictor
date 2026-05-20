@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 
@@ -758,6 +758,166 @@ button{font-family:'Plus Jakarta Sans',system-ui,sans-serif;cursor:pointer;}
   }
   .footer-bottom{
     flex-direction:column;text-align:center;gap:8px;
+  }
+
+  /* ── Unified Mobile Padding Override ── */
+  .container {
+    padding: 0 16px !important;
+  }
+
+  /* ── College Details & Cutoff Hero Section ── */
+  .detail-hero-strip {
+    padding: 24px 16px 32px !important;
+  }
+  .detail-hero-stats {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+  .detail-hero-actions {
+    margin-top: 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .detail-hero-actions button,
+  .detail-hero-actions .detail-share-btn {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    min-height: 48px !important;
+  }
+
+  /* ── College Details Grid & Sidebar Conversion ── */
+  .college-detail-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .college-detail-sidebar {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-bottom: 8px !important;
+  }
+  .college-detail-sidebar .sidebar-title {
+    font-size: 0.72rem !important;
+    margin-bottom: 8px !important;
+  }
+  .college-detail-branches {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    gap: 8px !important;
+    padding-bottom: 8px !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+  .college-detail-branches::-webkit-scrollbar {
+    display: none !important;
+  }
+  .branch-select-btn {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    text-align: center !important;
+    padding: 8px 16px !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* ── Cutoff Page Branch Bar ── */
+  .cutoff-branch-bar {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    gap: 8px !important;
+    margin-bottom: 16px !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+  .cutoff-branch-bar::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* ── Detail Cards & Tables ── */
+  .detail-card {
+    padding: 16px !important;
+  }
+  .cutoff-chart-container {
+    height: 160px !important;
+  }
+  .table-scroll-hint {
+    display: flex !important;
+  }
+  .college-detail-table th,
+  .college-detail-table td {
+    padding: 8px 10px !important;
+    font-size: 0.78rem !important;
+    white-space: nowrap !important;
+  }
+
+  /* ── Blog Index Overrides ── */
+  .blog-hero {
+    padding: 24px 16px 36px !important;
+  }
+  .blog-hero h1 {
+    font-size: clamp(1.4rem, 6vw, 1.8rem) !important;
+  }
+  .blog-main {
+    margin: -16px auto 0 !important;
+    padding: 0 16px 40px !important;
+  }
+  .blog-card {
+    padding: 18px 16px 16px !important;
+  }
+  .blog-card h2 {
+    font-size: 1.12rem !important;
+    margin-bottom: 8px !important;
+  }
+  .blog-card p {
+    font-size: 0.8rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* ── Blog Detail Overrides ── */
+  .blog-article {
+    padding: 24px 16px !important;
+  }
+  .blog-article h2 {
+    font-size: 1.15rem !important;
+    margin-top: 24px !important;
+    margin-bottom: 12px !important;
+  }
+  .blog-article p {
+    font-size: 0.86rem !important;
+    line-height: 1.7 !important;
+  }
+  .blog-tldr {
+    padding: 16px !important;
+    margin-bottom: 24px !important;
+  }
+  .blog-callout {
+    padding: 14px 16px !important;
+    margin-bottom: 16px !important;
+  }
+  .blog-table-wrapper {
+    margin-bottom: 16px !important;
+  }
+  .blog-table th,
+  .blog-table td {
+    padding: 8px 10px !important;
+    font-size: 0.78rem !important;
+  }
+  .blog-cta-banner {
+    padding: 20px 16px !important;
+  }
+  .blog-cta-banner h3 {
+    font-size: 1.1rem !important;
+  }
+  .faq-detail-item {
+    padding: 12px 16px !important;
   }
 }
 

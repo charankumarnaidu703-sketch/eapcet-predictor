@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import BottomNav from '@/components/layout/BottomNav';
 
 const SITE_URL = 'https://ranksure.vercel.app';
 
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="color-scheme" content="light" />
         <link rel="icon" href="/favicon.ico" sizes="256x256" type="image/x-icon" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
         {/* Google AdSense */}
         <script
           async
@@ -104,7 +106,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
         />
       </head>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        {children}
+        <BottomNav />
+      </body>
     </html>
   );
 }

@@ -90,7 +90,7 @@ export default function CollegeDetailClient({ collegeName, data }: CollegeDetail
   return (
     <>
       {/* Hero strip */}
-      <div style={{ background: 'var(--navy)', padding: '40px 24px 48px', position: 'relative' }}>
+      <div className="detail-hero-strip" style={{ background: 'var(--navy)', padding: '40px 24px 48px', position: 'relative' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <nav style={{ fontSize: '.72rem', color: 'rgba(255,255,255,.4)', marginBottom: 14, letterSpacing: '.04em', textTransform: 'uppercase', fontFamily: 'Plus Jakarta Sans,sans-serif' }}>
             <a href="/" style={{ color: 'var(--gold)', textDecoration: 'none' }}>Home</a>{' › '}
@@ -107,7 +107,7 @@ export default function CollegeDetailClient({ collegeName, data }: CollegeDetail
           <h1 style={{ fontFamily: 'Playfair Display,serif', fontSize: 'clamp(1.4rem,3vw,2rem)', color: '#fff', fontWeight: 800, lineHeight: 1.25, marginBottom: 24 }}>
             {c.college_name}
           </h1>
-          <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
+          <div className="detail-hero-stats" style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
             {[
               { label: 'Annual Fees', val: c.annual_fees || '—' },
               { label: 'Placement', val: <Stars r={c.placement_rating} /> },
@@ -120,13 +120,14 @@ export default function CollegeDetailClient({ collegeName, data }: CollegeDetail
               </div>
             ))}
           </div>
-          <div style={{ marginTop: 32, display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+          <div className="detail-hero-actions" style={{ marginTop: 32, display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
             <button onClick={() => document.getElementById('transport')?.scrollIntoView({ behavior: 'smooth' })} 
               className="pulse-anim"
               style={{ background: 'var(--gold)', color: '#fff', border: 'none', borderRadius: 'var(--r)', padding: '10px 18px', fontWeight: 700, fontSize: '.85rem', cursor: 'pointer', fontFamily: 'Plus Jakarta Sans,sans-serif', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
               🗺 View Transportation Route ↓
             </button>
             <ShareButton 
+              className="detail-share-btn"
               text={generateCollegeShareText(
                 c.college_name,
                 c.location,
@@ -152,13 +153,14 @@ export default function CollegeDetailClient({ collegeName, data }: CollegeDetail
           </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(160px,200px) 1fr', gap: 20, alignItems: 'start' }}>
+        <div className="college-detail-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(160px,200px) 1fr', gap: 20, alignItems: 'start' }}>
           {/* Branch sidebar */}
-          <div style={card}>
-            <p style={{ fontSize: '.67rem', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--subtle)', marginBottom: 12 }}>Branches</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+          <div className="college-detail-sidebar" style={card}>
+            <p style={{ fontSize: '.67rem', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--subtle)', marginBottom: 12 }} className="sidebar-title">Branches</p>
+            <div className="college-detail-branches" style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
               {branches.map(b => (
                 <button key={b} onClick={() => setSelBranch(b)}
+                  className={`branch-select-btn ${selBranch === b ? 'active' : ''}`}
                   style={{
                     textAlign: 'left', padding: '7px 10px', borderRadius: 'var(--r)',
                     border: selBranch === b ? '1.5px solid var(--gold)' : '1px solid var(--line)',
@@ -178,7 +180,7 @@ export default function CollegeDetailClient({ collegeName, data }: CollegeDetail
           <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
             {/* Trend chart */}
             {selBranch && (
-              <div style={card}>
+              <div className="detail-card" style={card}>
                 <p style={{ fontSize: '.67rem', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--subtle)', marginBottom: 4 }}>Closing Rank Trend</p>
                 <h2 style={{ fontFamily: 'Playfair Display,serif', fontSize: '1.1rem', color: 'var(--navy)', marginBottom: 20 }}>{selBranch}</h2>
                 <TrendChart data={data} branch={selBranch} />
@@ -200,14 +202,17 @@ export default function CollegeDetailClient({ collegeName, data }: CollegeDetail
             )}
 
             {/* Full table */}
-            <div style={card}>
+            <div className="detail-card" style={card}>
               <p style={{ fontSize: '.67rem', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--subtle)', marginBottom: 4 }}>All Branch Cutoffs</p>
               <h2 style={{ fontFamily: 'Playfair Display,serif', fontSize: '1.1rem', color: 'var(--navy)', marginBottom: 20 }}>{activeYear}</h2>
+              <div className="table-scroll-hint" style={{ display: 'none', alignItems: 'center', gap: 6, fontSize: '.75rem', color: 'var(--subtle)', marginBottom: 12 }}>
+                <span>Swipe horizontal to see all cutoff ranks ← →</span>
+              </div>
               {yearData.length === 0
                 ? <p style={{ color: 'var(--muted)', fontFamily: 'Plus Jakarta Sans,sans-serif' }}>No data for {activeYear}</p>
                 : (
                   <div style={{ overflowX: 'auto' }}>
-                    <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: 'Plus Jakarta Sans,sans-serif', fontSize: '.83rem' }}>
+                    <table className="college-detail-table" style={{ width: '100%', borderCollapse: 'collapse', fontFamily: 'Plus Jakarta Sans,sans-serif', fontSize: '.83rem' }}>
                       <thead>
                         <tr style={{ background: 'var(--cream)' }}>
                           {['Branch', 'Opening', 'Closing', 'Fees'].map(h => (
@@ -256,7 +261,7 @@ export default function CollegeDetailClient({ collegeName, data }: CollegeDetail
            HOW TO GET HERE (Step 7)
           ════════════════════════ */}
       <div id="transport" className="container" style={{ paddingBottom: 48 }}>
-        <div style={card}>
+        <div className="detail-card" style={card}>
           {/* Section heading */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20, paddingBottom: 16, borderBottom: '1px solid var(--line)' }}>
             <span style={{ fontSize: '1.3rem' }}>🗺</span>
