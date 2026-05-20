@@ -132,50 +132,105 @@ export default function ComparisonTable({ colleges, studentRank }: Props) {
 
   return (
     <div>
-      <p style={{ color: 'var(--subtle)', fontSize: '.75rem', marginBottom: 10, textAlign: 'right', fontFamily: 'Plus Jakarta Sans,sans-serif' }}>
+      {/* Mobile scroll hint banner */}
+      <div className="flex items-center gap-2 text-xs text-gray-500 mb-2 md:hidden">
+        <span>←</span>
+        <span>Scroll to compare all colleges</span>
+        <span>→</span>
+      </div>
+
+      {/* Desktop scroll hint */}
+      <p className="hidden md:block" style={{ color: 'var(--subtle)', fontSize: '.75rem', marginBottom: 10, textAlign: 'right', fontFamily: 'Plus Jakarta Sans,sans-serif' }}>
         ← Scroll to see all columns →
       </p>
-      <div ref={tableRef} style={{
-        overflowX: 'auto', WebkitOverflowScrolling: 'touch',
-        borderRadius: 'var(--r2)', border: '1px solid var(--line-dk)',
-        background: 'var(--white)',
-        boxShadow: 'var(--sh2)',
-      }}>
-        <table style={{ borderCollapse: 'collapse', width: '100%', minWidth: 560 }}>
-          <thead>
-            <tr>
-              {/* Sticky corner */}
-              <th style={{ ...rowLabelStyle, position: 'sticky', left: 0, zIndex: 3, background: 'var(--navy)', color: 'rgba(255,255,255,.5)', textAlign: 'left' }}>
-                Criteria
-              </th>
-              {colleges.map((c, i) => (
-                <th key={i} style={headerStyle}>
-                  <a href={`/college/${encodeURIComponent(c.name)}`} target="_blank" rel="noopener noreferrer"
-                    style={{ color: 'inherit', textDecoration: 'none' }}>
-                    {c.name}
-                  </a>
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row, ri) => (
-              <tr key={ri} style={{ background: ri % 2 === 0 ? 'var(--white)' : 'var(--cream)' }}>
-                <td style={{ ...rowLabelStyle, background: ri % 2 === 0 ? 'var(--cream-dk)' : 'var(--cream)' }}>{row.label}</td>
-                {row.values.map((val, ci) => (
-                  <td key={ci} style={cellStyle(row.bestIdx === ci)}>
-                    {val}
-                    {row.bestIdx === ci && (
-                      <span style={{ display: 'block', fontSize: '.65rem', color: 'var(--safe)', marginTop: 3, fontWeight: 700, letterSpacing: '.06em' }}>
-                        ✓ BEST
-                      </span>
-                    )}
-                  </td>
+
+      {/* Horizontal Scroll Wrapper on Mobile */}
+      <div className="w-full overflow-x-auto -mx-4 px-4">
+        <div className="min-w-[600px] md:min-w-0">
+          <div ref={tableRef} style={{
+            overflowX: 'auto', WebkitOverflowScrolling: 'touch',
+            borderRadius: 'var(--r2)', border: '1px solid var(--line-dk)',
+            background: 'var(--white)',
+            boxShadow: 'var(--sh2)',
+          }}>
+            <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+              <thead>
+                <tr>
+                  {/* Sticky corner cell */}
+                  <th 
+                    className="sticky left-0 z-20 border-r border-gray-100 bg-white text-gray-600 md:bg-[var(--navy)] md:text-white/50 font-medium text-sm md:text-xs min-w-[120px] md:min-w-[180px] p-3 text-left"
+                    style={{ 
+                      position: 'sticky', left: 0, zIndex: 20,
+                      fontFamily: 'Plus Jakarta Sans,sans-serif',
+                    }}
+                  >
+                    Criteria
+                  </th>
+                  {colleges.map((c, i) => (
+                    <th 
+                      key={i} 
+                      className="p-3 md:p-[16px_18px] min-w-[160px] md:min-w-[200px] max-w-[200px] bg-[var(--navy)] text-center text-white"
+                      style={{
+                        borderBottom: '2px solid var(--line-dk)',
+                        fontFamily: 'Plus Jakarta Sans,sans-serif',
+                      }}
+                    >
+                      <a 
+                        href={`/college/${encodeURIComponent(c.name)}`} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-sm md:text-[0.78rem] font-bold text-[var(--gold)] line-clamp-2 text-center block hover:underline"
+                        style={{ color: 'inherit', textDecoration: 'none' }}
+                      >
+                        {c.name}
+                      </a>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((row, ri) => (
+                  <tr key={ri} style={{ background: ri % 2 === 0 ? 'var(--white)' : 'var(--cream)' }}>
+                    {/* Sticky row labels */}
+                    <td 
+                      className={`sticky left-0 z-10 border-r border-gray-100 bg-white text-gray-600 font-medium text-sm min-w-[120px] md:min-w-[180px] p-3 md:p-[13px_18px] md:text-[var(--subtle)] md:text-[0.75rem] md:font-bold md:uppercase md:tracking-widest ${ri % 2 === 0 ? 'md:bg-[var(--cream-dk)]' : 'md:bg-[var(--cream)]'}`}
+                      style={{ 
+                        position: 'sticky', left: 0, zIndex: 10,
+                        fontFamily: 'Plus Jakarta Sans,sans-serif',
+                      }}
+                    >
+                      {row.label}
+                    </td>
+                    {row.values.map((val, ci) => {
+                      const isBest = row.bestIdx === ci;
+                      return (
+                        <td 
+                          key={ci}
+                          className="p-3 md:p-[13px_18px] min-w-[160px] md:min-w-[200px] max-w-[200px] text-center"
+                          style={{
+                            fontSize: '.88rem', fontFamily: 'Plus Jakarta Sans,sans-serif',
+                            color: isBest ? 'var(--safe)' : 'var(--text)',
+                            background: isBest ? 'var(--safe-bg)' : 'transparent',
+                            fontWeight: isBest ? 700 : 400,
+                            borderBottom: '1px solid var(--line)',
+                            transition: 'background .15s',
+                          }}
+                        >
+                          {val}
+                          {isBest && (
+                            <span style={{ display: 'block', fontSize: '.65rem', color: 'var(--safe)', marginTop: 3, fontWeight: 700, letterSpacing: '.06em' }}>
+                              ✓ BEST
+                            </span>
+                          )}
+                        </td>
+                      );
+                    })}
+                  </tr>
                 ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   );

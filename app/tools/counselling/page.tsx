@@ -21,25 +21,44 @@ export default function CounsellingPage() {
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       
-      <main style={{ flex: 1, padding: '40px 16px', background: 'var(--cream-lt)' }}>
+      <main 
+        className="flex-1 py-6 px-0 md:py-10 md:px-4"
+        style={{ background: 'var(--cream-lt)' }}
+      >
         <div className="container" style={{ maxWidth: 1000 }}>
           
-          <Breadcrumb items={[
-            { label: 'Home', href: '/' },
-            { label: 'Tools', href: '/' },
-            { label: 'Counselling Dates' },
-          ]} />
+          <div className="px-4 md:px-0 mb-4">
+            <Breadcrumb items={[
+              { label: 'Home', href: '/' },
+              { label: 'Tools', href: '/' },
+              { label: 'Counselling Dates' },
+            ]} />
+          </div>
           
-          <div style={{ textAlign: 'center', marginBottom: 40 }}>
-            <h1 style={{ fontFamily: 'Playfair Display,serif', color: 'var(--navy)', fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', fontWeight: 800, marginBottom: 8 }}>
+          <div className="px-4 md:px-0 text-center mb-8 md:mb-10">
+            <h1 
+              className="text-2xl font-bold md:text-[clamp(1.5rem,4vw,2.2rem)] md:font-extrabold text-[var(--navy)] mb-2"
+              style={{ fontFamily: 'Playfair Display,serif' }}
+            >
               Counselling Dates & Document Checklist
             </h1>
-            <p style={{ color: 'var(--muted)', fontFamily: 'Plus Jakarta Sans,sans-serif', maxWidth: 600, margin: '0 auto' }}>
+            <p 
+              className="text-sm text-gray-600 md:text-base md:text-[var(--muted)] max-w-[600px] mx-auto"
+              style={{ fontFamily: 'Plus Jakarta Sans,sans-serif' }}
+            >
               Track important upcoming counselling dates and organize your certificates before verification.
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 24, alignItems: 'start', marginBottom: 32 }}>
+          <div 
+            className="grid grid-cols-1 md:grid gap-6 items-start mb-8 px-4 md:px-0"
+            style={{ 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: 24, 
+              alignItems: 'start', 
+              marginBottom: 32 
+            }}
+          >
             <div>
               <CounsellingWidget />
             </div>
@@ -48,7 +67,7 @@ export default function CounsellingPage() {
             </div>
           </div>
 
-          <div style={{ maxWidth: 600, margin: '0 auto' }}>
+          <div className="px-4 md:px-0 max-w-[600px] mx-auto">
             <ReimbursementMiniBanner />
           </div>
 

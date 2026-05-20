@@ -75,17 +75,29 @@ export default function RecommendationCard({ colleges, studentRank, siteUrl }: P
 
   return (
     <div
+      className="p-5 md:p-[28px_32px] mt-8"
       style={{
-        marginTop: 32,
-        padding: '28px 32px',
         borderRadius: 20,
         border: '2px solid var(--primary)',
         background: 'rgba(99,102,241,0.08)',
         backdropFilter: 'blur(12px)',
       }}
     >
-      {/* Recommendation headline */}
-      <div style={{ marginBottom: 24 }}>
+      {/* Mobile Winner Callout: FIX 4 */}
+      <div className="block md:hidden p-4 rounded-xl text-center bg-green-50 border border-green-200 mb-6">
+        <p className="text-green-800 text-xs uppercase tracking-wider font-bold mb-1">
+          🏆 Our Recommendation
+        </p>
+        <h3 className="text-base font-bold text-green-900 mb-1.5 leading-snug">
+          {winner.name}
+        </h3>
+        <p className="text-xs text-green-700 leading-relaxed">
+          Based on admission probability, placement record, and annual fees, this college offers the best overall value for you.
+        </p>
+      </div>
+
+      {/* Desktop Recommendation headline */}
+      <div className="hidden md:block" style={{ marginBottom: 24 }}>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 6 }}>
           🏆 Our Recommendation
         </p>
@@ -98,18 +110,20 @@ export default function RecommendationCard({ colleges, studentRank, siteUrl }: P
         </p>
       </div>
 
-      {/* Progress bars per college */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+      {/* Progress bars per college: FIX 4 */}
+      <div className="flex flex-col gap-5 md:gap-6">
         {colleges.map((c, i) => (
-          <div key={i}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
-              <span style={{ fontSize: '0.85rem', fontWeight: 600, color: i === winnerIdx ? 'var(--primary-lt)' : 'var(--text-muted)' }}>
+          <div key={i} className="w-full">
+            <div className="flex justify-between items-center mb-1.5">
+              <span className="text-xs md:text-sm font-semibold truncate max-w-[70%]" style={{ color: i === winnerIdx ? 'var(--primary-lt)' : 'var(--text-muted)' }}>
                 {c.name} {i === winnerIdx ? '👑' : ''}
               </span>
-              <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+              <span className="text-[10px] md:text-xs text-slate-400" style={{ color: 'var(--text-muted)' }}>
                 Score: {scores[i].toFixed(0)}/100
               </span>
             </div>
+            
+            {/* Main score progress bar */}
             <div
               style={{
                 height: 8,
@@ -131,11 +145,11 @@ export default function RecommendationCard({ colleges, studentRank, siteUrl }: P
               />
             </div>
 
-            {/* Per-dimension mini bars */}
-            <div style={{ display: 'flex', gap: 12, marginTop: 8 }}>
+            {/* Per-dimension mini bars: stack on mobile */}
+            <div className="flex flex-col md:flex-row gap-2 md:gap-3 mt-2">
               {dimensions.map((d) => (
-                <div key={d.label} style={{ flex: 1 }}>
-                  <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', marginBottom: 3 }}>
+                <div key={d.label} className="w-full md:flex-1">
+                  <div className="text-[9px] md:text-[0.68rem] text-slate-400 mb-0.5" style={{ color: 'var(--text-muted)' }}>
                     {d.label}
                   </div>
                   <div style={{ height: 4, borderRadius: 4, background: 'rgba(255,255,255,0.08)', overflow: 'hidden' }}>

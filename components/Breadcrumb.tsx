@@ -39,19 +39,19 @@ export default function Breadcrumb({ items, variant = 'light' }: BreadcrumbProps
       />
       <nav
         aria-label="Breadcrumb"
-        className={`breadcrumb ${isDark ? 'breadcrumb-dark' : 'breadcrumb-light'}`}
+        className={`breadcrumb ${isDark ? 'breadcrumb-dark' : 'breadcrumb-light'} text-xs md:text-xs max-w-full overflow-hidden`}
       >
-        <ol className="breadcrumb-list">
+        <ol className="breadcrumb-list flex flex-wrap items-center">
           {items.map((item, i) => {
             const isLast = i === items.length - 1;
             return (
-              <li key={i} className="breadcrumb-item">
+              <li key={i} className="breadcrumb-item min-w-0 flex items-center">
                 {!isLast && item.href ? (
-                  <a href={item.href} className="breadcrumb-link">
+                  <a href={item.href} className="breadcrumb-link truncate max-w-[100px] md:max-w-none inline-block">
                     {item.label}
                   </a>
                 ) : (
-                  <span className="breadcrumb-current" aria-current="page">
+                  <span className="breadcrumb-current truncate max-w-[150px] md:max-w-none inline-block font-medium" aria-current="page">
                     {item.label}
                   </span>
                 )}

@@ -5,6 +5,7 @@ import CounsellingWidget from '@/components/CounsellingWidget';
 import ShareButton from '@/components/ShareButton';
 import FilterBar from '@/components/college/FilterBar';
 import MobileNav from '@/components/MobileNav';
+import Header from '@/components/layout/Header';
 import { generatePredictionShareText, generateCollegeShareText } from '@/lib/share';
 const CATEGORIES = ['OC','BC-A','BC-B','BC-C','BC-D','BC-E','SC','ST'];
 const GENDERS    = ['Male','Female'];
@@ -154,36 +155,32 @@ export default function HomePage() {
         }
       `}} />
       {/* ── Nav ── */}
-      <nav className="nav" role="navigation" aria-label="Main navigation">
-        <div className="nav-inner">
-          <a href="/" className="nav-logo">🎯 Rank<span>Sure</span></a>
-          <ul className="nav-links">
-            <li><a href="/compare">Compare</a></li>
-            <li><a href="/blog">Guides</a></li>
-            <li><a href="/tools/counselling">Counselling</a></li>
-            <li><a href="/tools/scholarships">Scholarships</a></li>
-            <li><a href="/tools/reimbursement">Fee Aid</a></li>
-          </ul>
-          <MobileNav />
-        </div>
-      </nav>
+      <Header />
 
       {/* ── Hero ── */}
-      <section className="hero" aria-labelledby="hero-heading">
+      <section className="hero !px-4 md:!px-8" aria-labelledby="hero-heading">
         <div className="hero-inner">
           {/* Left: editorial headline */}
           <div>
             <div className="hero-eyebrow">AP EAPCET 2025 · Rank Predictor</div>
-            <h1 id="hero-heading">
+            <h1 id="hero-heading" className="!text-3xl md:!text-5xl font-extrabold leading-tight text-white mb-5">
               Find Your Place Among<br/><em>AP&apos;s Best Engineering</em><br/>Colleges
             </h1>
-            <p className="hero-sub">
+            <p className="hero-sub !text-base md:!text-lg text-white/55 mb-9 leading-relaxed">
               Personalised predictions from 6,243 real cutoff records across 328+ colleges.
               Enter your rank — get your answer in under 2 seconds.
             </p>
-            <div className="hero-stats" role="list" aria-label="Stats">
-              {[{n:'328+',l:'Colleges'},{n:'117',l:'Branches'},{n:'6,243',l:'Records'},{n:'3 Yrs',l:'Data'}].map(s=>(
-                <div className="hero-stat" role="listitem" key={s.l}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-0 w-full mb-9" role="list" aria-label="Stats">
+              {[{n:'328+',l:'Colleges'},{n:'117',l:'Branches'},{n:'6,243',l:'Records'},{n:'3 Yrs',l:'Data'}].map((s, idx)=>(
+                <div 
+                  className={`text-center py-3 border-white/10 !border-l-0 md:!border-l-2 md:border-t-0 md:border-b-0 md:border-r-0 md:pl-[14px] md:py-0 md:text-left md:border-[var(--gold)] ${
+                    idx % 2 === 0 ? 'border-r' : ''
+                  } ${
+                    idx < 2 ? 'border-b' : ''
+                  } hero-stat`} 
+                  role="listitem" 
+                  key={s.l}
+                >
                   <div className="hero-stat-num">{s.n}</div>
                   <div className="hero-stat-lbl">{s.l}</div>
                 </div>
@@ -195,49 +192,72 @@ export default function HomePage() {
           <div className="form-card">
             <div className="form-card-title">Enter Your Details</div>
             <form onSubmit={handlePredict} noValidate aria-label="College prediction form">
-              <div className="form-grid">
-                <div className="form-group full">
-                  <label className="form-label" htmlFor="rank-input">Your EAPCET Rank *</label>
-                  <input id="rank-input" type="number" className="form-input"
+              <div className="form-grid flex flex-col space-y-4 md:grid md:grid-cols-2 md:gap-[14px] md:space-y-0">
+                <div className="form-group full flex flex-col gap-1">
+                  <label className="form-label block mb-1 text-sm font-medium md:text-[0.67rem] md:font-bold md:tracking-[0.08em] md:uppercase md:mb-0" htmlFor="rank-input">Your EAPCET Rank *</label>
+                  <input id="rank-input" type="number" className="form-input w-full min-h-[44px] px-3 py-2.5 text-base md:min-h-0 md:px-[13px] md:py-[11px] md:text-[0.92rem]"
                     placeholder="e.g. 25000" value={rank} onChange={e=>setRank(e.target.value)}
                     min="1" max="250000" required aria-invalid={!!error}/>
                   <p className="rank-hint">Enter overall rank · 1 – 2,50,000</p>
                   {error&&<p role="alert" style={{color:'var(--reach)',fontSize:'.78rem',marginTop:3}}>{error}</p>}
                 </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="cat">Category</label>
-                  <div className="select-wrap">
-                    <select id="cat" className="form-select" value={category} onChange={e=>setCategory(e.target.value)}>
+                <div className="form-group flex flex-col gap-1">
+                  <label className="form-label block mb-1 text-sm font-medium md:text-[0.67rem] md:font-bold md:tracking-[0.08em] md:uppercase md:mb-0" htmlFor="cat">Category</label>
+                  {/* Mobile Radio Chips — Visible on mobile (< 768px) */}
+                  <div className="flex flex-wrap gap-2 md:hidden" role="radiogroup" aria-label="Category selection">
+                    {CATEGORIES.map(c => {
+                      const isSel = category === c;
+                      return (
+                        <button
+                          key={c}
+                          type="button"
+                          onClick={() => setCategory(c)}
+                          className={`text-sm px-3 py-1.5 rounded-full whitespace-nowrap border transition-all cursor-pointer text-center flex-1 min-w-[70px] ${
+                            isSel
+                              ? 'bg-[var(--navy)] text-white border-[var(--navy)] font-semibold'
+                              : 'bg-[var(--cream)] text-[var(--subtle)] border-[var(--line-dk)] hover:border-[var(--muted)]'
+                          }`}
+                          aria-checked={isSel}
+                          role="radio"
+                        >
+                          {c}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  {/* Desktop Dropdown select — Visible on desktop (md:) */}
+                  <div className="hidden md:block select-wrap">
+                    <select id="cat" className="form-select w-full px-3 py-2.5 text-base min-h-[44px] md:min-h-0 md:px-[13px] md:py-[11px] md:text-[0.92rem]" value={category} onChange={e=>setCategory(e.target.value)}>
                       {CATEGORIES.map(c=><option key={c}>{c}</option>)}
                     </select>
                   </div>
                 </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="gen">Gender</label>
+                <div className="form-group flex flex-col gap-1">
+                  <label className="form-label block mb-1 text-sm font-medium md:text-[0.67rem] md:font-bold md:tracking-[0.08em] md:uppercase md:mb-0" htmlFor="gen">Gender</label>
                   <div className="select-wrap">
-                    <select id="gen" className="form-select" value={gender} onChange={e=>setGender(e.target.value)}>
+                    <select id="gen" className="form-select w-full px-3 py-2.5 text-base min-h-[44px] md:min-h-0 md:px-[13px] md:py-[11px] md:text-[0.92rem]" value={gender} onChange={e=>setGender(e.target.value)}>
                       {GENDERS.map(g=><option key={g}>{g}</option>)}
                     </select>
                   </div>
                 </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="br">Branch</label>
+                <div className="form-group flex flex-col gap-1">
+                  <label className="form-label block mb-1 text-sm font-medium md:text-[0.67rem] md:font-bold md:tracking-[0.08em] md:uppercase md:mb-0" htmlFor="br">Branch</label>
                   <div className="select-wrap">
-                    <select id="br" className="form-select" value={branch} onChange={e=>setBranch(e.target.value)}>
+                    <select id="br" className="form-select w-full px-3 py-2.5 text-base min-h-[44px] md:min-h-0 md:px-[13px] md:py-[11px] md:text-[0.92rem]" value={branch} onChange={e=>setBranch(e.target.value)}>
                       {branches.map(b=><option key={b}>{b}</option>)}
                     </select>
                   </div>
                 </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="loc">Location</label>
+                <div className="form-group flex flex-col gap-1">
+                  <label className="form-label block mb-1 text-sm font-medium md:text-[0.67rem] md:font-bold md:tracking-[0.08em] md:uppercase md:mb-0" htmlFor="loc">Location</label>
                   <div className="select-wrap">
-                    <select id="loc" className="form-select" value={location} onChange={e=>setLocation(e.target.value)}>
+                    <select id="loc" className="form-select w-full px-3 py-2.5 text-base min-h-[44px] md:min-h-0 md:px-[13px] md:py-[11px] md:text-[0.92rem]" value={location} onChange={e=>setLocation(e.target.value)}>
                       {locations.map(l=><option key={l}>{l}</option>)}
                     </select>
                   </div>
                 </div>
               </div>
-              <button type="submit" className="btn-predict" id="predict-btn" disabled={loading} aria-busy={loading}>
+              <button type="submit" className="btn-predict w-full min-h-[52px] text-lg md:min-h-0 md:text-[0.9rem]" id="predict-btn" disabled={loading} aria-busy={loading}>
                 {loading
                   ?<><span className="spinner"/>Analysing…</>
                   :<><span className="gold-dot"/>Predict My Colleges</>}
@@ -340,7 +360,7 @@ export default function HomePage() {
           <div className="features-inner">
             <div className="features-eyebrow">Why RankSure</div>
             <h2>Built for AP students,<br/>by data — not guesswork</h2>
-            <div className="features-grid">
+            <div className="features-grid grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
               {[
                 {icon:'📊',title:'Real 3-Year Data',desc:'2023, 2024 & 2025 AP EAPCET official allotment cutoffs. No estimates.'},
                 {icon:'🎯',title:'Safe / Medium / Reach',desc:'Personalised probability bands for every college based on your exact rank.'},
@@ -373,23 +393,31 @@ export default function HomePage() {
           <div className="how-inner">
             <div className="how-eyebrow">How It Works</div>
             <h2>Get Your College Prediction in 4 Simple Steps</h2>
-            <div className="how-steps">
-              <div className="how-step">
-                <h3>Enter Your EAPCET Rank</h3>
-                <p>Type your AP EAPCET 2025 rank along with your category (OC, BC, SC, ST) and preferred branch.</p>
-              </div>
-              <div className="how-step">
-                <h3>AI Analyses 6,243 Records</h3>
-                <p>Our prediction engine uses a trend-adjusted statistical model on 3 years of official cutoff data from 328+ colleges.</p>
-              </div>
-              <div className="how-step">
-                <h3>See Safe / Medium / Reach</h3>
-                <p>Colleges are sorted by your admission probability — Safe (75%+), Medium (40–74%), and Reach (below 40%).</p>
-              </div>
-              <div className="how-step">
-                <h3>Compare & Decide</h3>
-                <p>Compare up to 3 colleges side-by-side on fees, placements, and cutoff trends. Check <a href="/tools/reimbursement" style={{color:'var(--gold)'}}>fee reimbursement</a> eligibility too.</p>
-              </div>
+            <div className="how-steps flex flex-col relative space-y-8 md:grid md:grid-cols-4 md:gap-6 md:space-y-0">
+              {/* Connecting vertical dashed line — mobile only */}
+              <div className="absolute left-[36px] top-6 bottom-6 border-l-2 border-dashed border-[var(--gold)] md:hidden pointer-events-none" />
+              
+              {[
+                { step: 1, title: 'Enter Your EAPCET Rank', desc: 'Type your AP EAPCET 2025 rank along with your category (OC, BC, SC, ST) and preferred branch.' },
+                { step: 2, title: 'AI Analyses 6,243 Records', desc: 'Our prediction engine uses a trend-adjusted statistical model on 3 years of official cutoff data from 328+ colleges.' },
+                { step: 3, title: 'See Safe / Medium / Reach', desc: 'Colleges are sorted by your admission probability — Safe (75%+), Medium (40–74%), and Reach (below 40%).' },
+                { step: 4, title: 'Compare & Decide', desc: <>Compare up to 3 colleges side-by-side on fees, placements, and cutoff trends. Check <a href="/tools/reimbursement" style={{color:'var(--gold)'}}>fee reimbursement</a> eligibility too.</> }
+              ].map((s, idx) => (
+                <div key={idx} className="how-step before:hidden flex flex-row items-start gap-4 p-5 md:flex-col md:gap-0 md:p-6 md:pt-7 relative">
+                  {/* Number Circle on the Left (Mobile) and Top (Desktop reset via absolute or block) */}
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[var(--navy)] text-[var(--gold)] font-serif font-extrabold text-sm flex items-center justify-center relative z-10 md:absolute md:-top-3.5 md:left-5 md:w-7 md:h-7 md:text-[0.85rem]">
+                    {s.step}
+                  </div>
+                  <div>
+                    <h3 className="font-sans font-bold text-[0.95rem] text-[var(--navy)] mb-2 md:mt-2">
+                      {s.title}
+                    </h3>
+                    <p className="text-xs text-[var(--subtle)] leading-relaxed md:text-[0.82rem]">
+                      {s.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>

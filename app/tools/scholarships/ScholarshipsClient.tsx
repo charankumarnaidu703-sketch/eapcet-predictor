@@ -7,6 +7,7 @@ export default function ScholarshipsClient({ schemes }: { schemes?: ScholarshipS
   const data = schemes || SCHOLARSHIP_SCHEMES;
   const [stateFilter, setStateFilter] = useState<string>('All');
   const [categoryFilter, setCategoryFilter] = useState<string>('All');
+  const [showAllCategories, setShowAllCategories] = useState<boolean>(false);
 
   // Derive unique filter options from the data
   const stateOptions = useMemo(() => {
@@ -38,11 +39,11 @@ export default function ScholarshipsClient({ schemes }: { schemes?: ScholarshipS
 
   return (
     <>
-      <div className="hero">
+      <div className="hero !px-4 !py-6 md:!px-6 md:!py-[60px]">
         <div className="hero-inner" style={{ textAlign: 'center' }}>
           <div className="hero-eyebrow">Financial Aid Guide</div>
-          <h1>Scholarships & Fee Reimbursement</h1>
-          <p>
+          <h1 className="!text-2xl md:!text-4xl">Scholarships & Fee Reimbursement</h1>
+          <p className="!text-sm md:!text-[1.1rem]">
             Explore 10+ government and private scholarship schemes available for AP & Telangana engineering students. Check your eligibility instantly.
           </p>
         </div>
@@ -52,11 +53,15 @@ export default function ScholarshipsClient({ schemes }: { schemes?: ScholarshipS
         {/* SECTION B — Quick Filter Bar */}
         <div className="filter-section">
           <div className="filter-label">Filter by Provider/Region</div>
-          <div className="filter-group">
+          <div className="filter-group flex flex-nowrap overflow-x-auto scrollbar-hide pb-1 gap-2 md:flex-wrap md:overflow-visible md:pb-0 md:gap-[10px]">
             {stateOptions.map(opt => (
               <button 
                 key={opt}
-                className={`filter-pill ${stateFilter === opt ? 'active' : ''}`}
+                className={`filter-pill whitespace-nowrap flex-shrink-0 text-sm px-4 py-2 rounded-full md:rounded-[var(--r)] md:text-[0.85rem] md:px-4 md:py-2 transition-all ${
+                  stateFilter === opt 
+                    ? 'bg-blue-600 text-white md:bg-[var(--navy)] md:text-white' 
+                    : 'bg-gray-100 text-gray-700 md:bg-[var(--cream)] md:text-[var(--muted)] md:border md:border-[var(--line)]'
+                }`}
                 onClick={() => setStateFilter(opt)}
               >
                 {opt}
@@ -65,20 +70,46 @@ export default function ScholarshipsClient({ schemes }: { schemes?: ScholarshipS
           </div>
           
           <div className="filter-label" style={{ marginTop: 24 }}>Filter by Category</div>
-          <div className="filter-group">
-            {categoryOptions.map(opt => (
+          <div className="filter-group flex flex-wrap gap-1.5 md:gap-[10px]">
+            {categoryOptions.slice(0, 4).map(opt => (
               <button 
                 key={opt}
-                className={`filter-pill ${categoryFilter === opt ? 'active' : ''}`}
+                className={`text-xs px-2.5 py-1 rounded-md whitespace-nowrap transition-all cursor-pointer ${
+                  categoryFilter === opt 
+                    ? 'bg-blue-600 text-white md:bg-[var(--navy)] md:text-white' 
+                    : 'bg-gray-100 text-gray-700 md:bg-[var(--cream)] md:text-[var(--muted)] md:border md:border-[var(--line)]'
+                } md:text-[0.85rem] md:px-4 md:py-2 md:rounded-[var(--r)]`}
+                onClick={() => setCategoryFilter(opt)}
+              >
+                {opt}
+              </button>
+            ))}
+            {categoryOptions.slice(4).map(opt => (
+              <button 
+                key={opt}
+                className={`${showAllCategories ? 'block' : 'hidden'} md:block text-xs px-2.5 py-1 rounded-md whitespace-nowrap transition-all cursor-pointer ${
+                  categoryFilter === opt 
+                    ? 'bg-blue-600 text-white md:bg-[var(--navy)] md:text-white' 
+                    : 'bg-gray-100 text-gray-700 md:bg-[var(--cream)] md:text-[var(--muted)] md:border md:border-[var(--line)]'
+                } md:text-[0.85rem] md:px-4 md:py-2 md:rounded-[var(--r)]`}
                 onClick={() => setCategoryFilter(opt)}
               >
                 {opt}
               </button>
             ))}
           </div>
+          <div className="md:hidden mt-2">
+            <button
+              type="button"
+              onClick={() => setShowAllCategories(!showAllCategories)}
+              className="text-xs font-semibold text-blue-600 hover:text-blue-800 bg-transparent border-none cursor-pointer"
+            >
+              {showAllCategories ? 'Show less ↑' : 'Show more ↓'}
+            </button>
+          </div>
         </div>
 
-        <div style={{ marginBottom: 24, color: 'var(--slate)', fontWeight: 500 }}>
+        <div className="text-sm text-gray-500 mt-2 md:text-base md:text-[var(--slate)] md:font-medium md:mt-0" style={{ marginBottom: 24 }}>
           Showing {filteredSchemes.length} scholarship schemes
         </div>
 
@@ -88,20 +119,37 @@ export default function ScholarshipsClient({ schemes }: { schemes?: ScholarshipS
             const badgeStyle = getStateBadgeColor(scheme.state);
             
             return (
-              <article key={scheme.id} className="scheme-card">
+              <article key={scheme.id} className="scheme-card !p-4 md:!p-[24px]">
                 <div className="card-top">
                   <h3 className="card-name">{scheme.name}</h3>
                   <span className="badge" style={badgeStyle}>{scheme.state}</span>
                 </div>
                 
-                <div className="scheme-cats">
+                {/* Mobile version — show first 4 + "+X more" if > 5 */}
+                <div className="scheme-cats flex flex-wrap gap-1 mb-4 md:hidden">
+                  {scheme.eligibleCategories.length <= 5 ? (
+                    scheme.eligibleCategories.map(cat => (
+                      <span key={cat} className="cat-chip !text-xs !px-2 !py-0.5 max-w-fit">{cat}</span>
+                    ))
+                  ) : (
+                    <>
+                      {scheme.eligibleCategories.slice(0, 4).map(cat => (
+                        <span key={cat} className="cat-chip !text-xs !px-2 !py-0.5 max-w-fit">{cat}</span>
+                      ))}
+                      <span className="cat-chip !text-xs !px-2 !py-0.5 max-w-fit">+{scheme.eligibleCategories.length - 4} more</span>
+                    </>
+                  )}
+                </div>
+
+                {/* Desktop version — show first 8 + "+X more" if > 8 */}
+                <div className="scheme-cats hidden md:flex flex-wrap gap-1.5 mb-4">
                   {scheme.eligibleCategories.slice(0, 8).map(cat => (
                     <span key={cat} className="cat-chip">{cat}</span>
                   ))}
                   {scheme.eligibleCategories.length > 8 && <span className="cat-chip">+{scheme.eligibleCategories.length - 8} more</span>}
                 </div>
 
-                <div className="scheme-amount">
+                <div className="scheme-amount !text-xl !font-bold md:!text-[0.9rem] md:!font-bold">
                   {scheme.amount}
                 </div>
 
@@ -113,13 +161,13 @@ export default function ScholarshipsClient({ schemes }: { schemes?: ScholarshipS
                   💰 Family income below Rs. {(scheme.maxAnnualIncome / 100000).toFixed(1)} Lakhs
                 </div>
 
-                <div className="card-actions">
-                  <a href="/tools/reimbursement" className="btn-primary">
+                <div className="card-actions flex flex-col gap-2 mt-3 sm:flex-row sm:gap-3 sm:mt-auto">
+                  <a href="/tools/reimbursement" className="btn-primary w-full text-center py-2.5 text-sm sm:w-auto sm:text-center sm:py-[10px] sm:text-[0.85rem]">
                     Check Eligibility
                   </a>
                   <a 
                     href={`/tools/scholarships/${scheme.id}`}
-                    className="btn-outline"
+                    className="btn-outline w-full text-center py-2.5 text-sm sm:w-auto sm:text-center sm:py-[10px] sm:text-[0.85rem]"
                     style={{ textDecoration: 'none', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                   >
                     View Details

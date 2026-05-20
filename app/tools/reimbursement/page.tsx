@@ -64,13 +64,15 @@ export default function ReimbursementPage() {
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <main style={{ flex: 1, padding: '40px 16px', background: 'var(--cream-lt)' }}>
-        <div className="container" style={{ maxWidth: 800 }}>
+        <div className="max-w-lg mx-auto px-4 py-6 md:max-w-[800px] md:px-0 md:py-0">
           
-          <button onClick={() => router.back()} style={{ marginBottom: 20, padding: '8px 16px', background: 'transparent', border: '1px solid var(--line-dk)', borderRadius: 'var(--r)', color: 'var(--muted)', fontWeight: 600, cursor: 'pointer', fontFamily: 'Plus Jakarta Sans,sans-serif' }}>
+          <button 
+            onClick={() => router.back()} 
+            className="block mb-4 text-sm text-blue-600 font-semibold cursor-pointer border-none bg-transparent p-0 text-left md:inline-block md:mb-5 md:px-4 md:py-2 md:border md:border-[var(--line-dk)] md:rounded-[var(--r)] md:text-[var(--muted)] md:bg-transparent"
+          >
             ← Back
           </button>
 
-          
           <div style={{ textAlign: 'center', marginBottom: 32 }}>
             <h1 style={{ fontFamily: 'Playfair Display,serif', color: 'var(--navy)', fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', fontWeight: 800, marginBottom: 8 }}>
               Fee Reimbursement Checker
@@ -82,39 +84,76 @@ export default function ReimbursementPage() {
 
           {step < 4 && (
             <div style={cardStyle}>
-              {/* Progress */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24, fontSize: '.75rem', fontWeight: 700, color: 'var(--subtle)', textTransform: 'uppercase', letterSpacing: '.05em', fontFamily: 'Plus Jakarta Sans,sans-serif' }}>
-                <span>Step {step} of 3</span>
-                <div style={{ display: 'flex', gap: 4 }}>
-                  {[1, 2, 3].map(i => (
-                    <div key={i} style={{ height: 4, width: 24, borderRadius: 2, background: i <= step ? 'var(--gold)' : 'var(--line)' }} />
-                  ))}
-                </div>
+              {/* Progress Step Indicator (FIX 1) */}
+              <div className="flex items-center justify-center gap-2 mb-6 font-sans">
+                {[1, 2, 3].map((i) => {
+                  const isActive = step === i;
+                  const isComplete = step > i;
+                  const isUpcoming = step < i;
+
+                  let dotClass = "w-8 h-8 rounded-full text-sm font-bold flex items-center justify-center transition-all ";
+                  if (isActive) dotClass += "bg-blue-600 text-white";
+                  else if (isComplete) dotClass += "bg-green-500 text-white";
+                  else dotClass += "bg-gray-200 text-gray-500";
+
+                  return (
+                    <div key={i} className="flex items-center">
+                      <div className={dotClass}>
+                        {isComplete ? "✓" : i}
+                      </div>
+                      {i < 3 && (
+                        <div className={`w-8 h-0.5 mx-2 ${step > i ? 'bg-green-500' : 'bg-gray-200'}`} />
+                      )}
+                    </div>
+                  );
+                })}
               </div>
 
               {step === 1 && (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
                   <div>
                     <label style={{ display: 'block', marginBottom: 12, fontWeight: 700, color: 'var(--navy)', fontSize: '.9rem' }}>Which state are you studying in?</label>
-                    <div style={{ display: 'flex', gap: 12 }}>
-                      {['AP', 'Telangana'].map(s => (
-                        <button key={s} onClick={() => setStateForm(s as any)}
-                          style={{ flex: 1, padding: '12px', border: stateForm === s ? '2px solid var(--gold)' : '1px solid var(--line)', background: stateForm === s ? 'var(--gold-pale)' : '#fff', borderRadius: 'var(--r)', fontWeight: 600, color: stateForm === s ? 'var(--gold)' : 'var(--text)', transition: 'all .15s' }}>
-                          {s}
-                        </button>
-                      ))}
+                    {/* State Selector (FIX 2) */}
+                    <div className="grid grid-cols-2 gap-3 md:flex md:gap-3">
+                      {['AP', 'Telangana'].map(s => {
+                        const isSelected = stateForm === s;
+                        return (
+                          <button 
+                            key={s} 
+                            onClick={() => setStateForm(s as any)}
+                            className={`p-4 rounded-xl border-2 text-center min-h-[80px] flex flex-col items-center justify-center cursor-pointer transition-all w-full md:flex-1 md:p-3 md:min-h-[50px] md:border md:rounded-[var(--r)] md:font-semibold ${
+                              isSelected 
+                                ? 'border-blue-600 bg-blue-50 text-blue-600 md:border-[var(--gold)] md:bg-[var(--gold-pale)] md:text-[var(--gold)]' 
+                                : 'border-gray-200 bg-white text-gray-700 md:border-[var(--line)] md:bg-white md:text-[var(--text)]'
+                            }`}
+                          >
+                            {s}
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
 
                   <div>
                     <label style={{ display: 'block', marginBottom: 12, fontWeight: 700, color: 'var(--navy)', fontSize: '.9rem' }}>What is your reservation category?</label>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                      {categories.map(c => (
-                        <button key={c} onClick={() => setCategory(c)}
-                          style={{ padding: '8px 16px', border: category === c ? '2px solid var(--navy)' : '1px solid var(--line)', background: category === c ? 'var(--navy)' : '#fff', color: category === c ? '#fff' : 'var(--text)', borderRadius: 20, fontWeight: 500, fontSize: '.85rem', transition: 'all .15s' }}>
-                          {c}
-                        </button>
-                      ))}
+                    {/* Category Chips (FIX 3) */}
+                    <div className="grid grid-cols-3 gap-2 md:flex md:flex-wrap md:gap-2">
+                      {categories.map(c => {
+                        const isSelected = category === c;
+                        return (
+                          <button 
+                            key={c} 
+                            onClick={() => setCategory(c)}
+                            className={`text-center py-2.5 text-sm font-medium rounded-lg border-2 cursor-pointer transition-all md:px-4 md:py-2 md:rounded-full md:border md:text-[0.85rem] md:font-semibold ${
+                              isSelected 
+                                ? 'border-blue-600 bg-blue-50 text-blue-700 md:border-[var(--navy)] md:bg-[var(--navy)] md:text-white' 
+                                : 'border-gray-200 bg-white text-gray-700 md:border-[var(--line)] md:bg-white md:text-[var(--text)]'
+                            }`}
+                          >
+                            {c}
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
@@ -124,34 +163,61 @@ export default function ReimbursementPage() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
                   <div>
                     <label style={{ display: 'block', marginBottom: 12, fontWeight: 700, color: 'var(--navy)', fontSize: '.9rem' }}>Annual Family Income</label>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                    {/* Income Range Selector (FIX 4) */}
+                    <div className="flex flex-col gap-3 md:gap-2">
                       {[
                         { label: 'Below Rs. 1,00,000', val: 99000 },
                         { label: 'Rs. 1,00,001 to Rs. 2,00,000', val: 150000 },
                         { label: 'Rs. 2,00,001 to Rs. 2,50,000', val: 240000 },
                         { label: 'Above Rs. 2,50,000', val: 300000 },
-                      ].map(inc => (
-                        <button key={inc.val} onClick={() => setIncomeRange(inc.val)}
-                          style={{ textAlign: 'left', padding: '12px 16px', border: incomeRange === inc.val ? '2px solid var(--gold)' : '1px solid var(--line)', background: incomeRange === inc.val ? 'var(--gold-pale)' : '#fff', borderRadius: 'var(--r)', fontWeight: 500, color: incomeRange === inc.val ? 'var(--gold)' : 'var(--text)', transition: 'all .15s' }}>
-                          {inc.label}
-                        </button>
-                      ))}
+                      ].map(inc => {
+                        const isSelected = incomeRange === inc.val;
+                        return (
+                          <button 
+                            key={inc.val} 
+                            onClick={() => setIncomeRange(inc.val)}
+                            className={`flex items-center gap-3 p-3 rounded-lg border text-left cursor-pointer text-sm transition-all w-full md:block md:p-3 md:rounded-[var(--r)] md:font-medium md:text-base ${
+                              isSelected 
+                                ? 'border-blue-500 bg-blue-50 text-blue-700 md:border-2 md:border-[var(--gold)] md:bg-[var(--gold-pale)] md:text-[var(--gold)]' 
+                                : 'border-gray-200 bg-white text-gray-700 md:border md:border-[var(--line)] md:bg-white md:text-[var(--text)]'
+                            }`}
+                          >
+                            <div className={`w-4 h-4 rounded-full border flex items-center justify-center md:hidden ${isSelected ? 'border-blue-500' : 'border-gray-300'}`}>
+                              {isSelected && <div className="w-2 h-2 rounded-full bg-blue-500" />}
+                            </div>
+                            <span>{inc.label}</span>
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
 
                   <div>
                     <label style={{ display: 'block', marginBottom: 12, fontWeight: 700, color: 'var(--navy)', fontSize: '.9rem' }}>Do you have a valid Income Certificate?</label>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                    <div className="flex flex-col gap-3 md:gap-2">
                       {[
                         { label: 'Yes, I have it', val: 'yes' },
                         { label: 'No, I don\'t', val: 'no' },
                         { label: 'I will get one soon', val: 'will-get' },
-                      ].map(opt => (
-                        <button key={opt.val} onClick={() => setHasCert(opt.val as any)}
-                          style={{ textAlign: 'left', padding: '12px 16px', border: hasCert === opt.val ? '2px solid var(--navy)' : '1px solid var(--line)', background: hasCert === opt.val ? 'var(--navy)' : '#fff', color: hasCert === opt.val ? '#fff' : 'var(--text)', borderRadius: 'var(--r)', fontWeight: 500, transition: 'all .15s' }}>
-                          {opt.label}
-                        </button>
-                      ))}
+                      ].map(opt => {
+                        const isSelected = hasCert === opt.val;
+                        return (
+                          <button 
+                            key={opt.val} 
+                            onClick={() => setHasCert(opt.val as any)}
+                            className={`flex items-center gap-3 p-3 rounded-lg border text-left cursor-pointer text-sm transition-all w-full md:block md:p-3 md:rounded-[var(--r)] md:font-medium md:text-base ${
+                              isSelected 
+                                ? 'border-blue-500 bg-blue-50 text-blue-700 md:border-2 md:border-[var(--navy)] md:bg-[var(--navy)] md:text-white' 
+                                : 'border-gray-200 bg-white text-gray-700 md:border md:border-[var(--line)] md:bg-white md:text-[var(--text)]'
+                            }`}
+                          >
+                            <div className={`w-4 h-4 rounded-full border flex items-center justify-center md:hidden ${isSelected ? 'border-blue-500' : 'border-gray-300'}`}>
+                              {isSelected && <div className="w-2 h-2 rounded-full bg-blue-500" />}
+                            </div>
+                            <span>{opt.label}</span>
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
@@ -172,16 +238,28 @@ export default function ReimbursementPage() {
                 </div>
               )}
 
-              {/* Navigation */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 32, paddingTop: 20, borderTop: '1px solid var(--line)' }}>
+              {/* Navigation Buttons (FIX 5) */}
+              <div className="flex flex-col-reverse gap-3 mt-8 pt-5 border-t border-[var(--line)] sm:flex-row sm:justify-between sm:items-center sm:gap-0">
                 {step > 1 ? (
-                  <button onClick={handleBack} style={{ padding: '10px 20px', background: 'transparent', border: 'none', color: 'var(--muted)', fontWeight: 600, cursor: 'pointer' }}>
+                  <button 
+                    onClick={handleBack} 
+                    className="w-full py-3 text-base font-medium text-center bg-transparent border border-gray-200 rounded-lg text-gray-500 cursor-pointer sm:w-auto sm:border-none sm:p-0 sm:font-semibold sm:text-[var(--muted)]"
+                  >
                     ← Back
                   </button>
-                ) : <div />}
+                ) : (
+                  <div className="hidden sm:block" />
+                )}
                 
-                <button onClick={handleNext} disabled={!isStepValid()}
-                  style={{ padding: '12px 28px', background: isStepValid() ? 'var(--gold)' : 'var(--line-dk)', color: isStepValid() ? '#fff' : 'var(--muted)', border: 'none', borderRadius: 'var(--r)', fontWeight: 700, cursor: isStepValid() ? 'pointer' : 'not-allowed', transition: 'all .2s' }}>
+                <button 
+                  onClick={handleNext} 
+                  disabled={!isStepValid()}
+                  className={`w-full py-3 text-base font-medium text-center rounded-lg border-none transition-all sm:w-auto sm:px-7 sm:py-3 sm:rounded-[var(--r)] sm:font-bold ${
+                    isStepValid() 
+                      ? 'bg-blue-600 text-white cursor-pointer hover:bg-blue-700 sm:bg-[var(--gold)] sm:text-white' 
+                      : 'bg-gray-100 text-gray-400 cursor-not-allowed sm:bg-[var(--line-dk)] sm:text-[var(--muted)]'
+                  }`}
+                >
                   {step === 3 ? 'Check Eligibility' : 'Next Step →'}
                 </button>
               </div>

@@ -63,11 +63,11 @@ export default function ScholarshipsPage() {
       />
       <div className="container" style={{ paddingTop: 40, paddingBottom: 80 }}>
         {/* SECTION A — Page Header */}
-        <header style={{ marginBottom: 40, textAlign: 'center' }}>
-          <h1 style={{ fontSize: '2.5rem', color: 'var(--navy)', marginBottom: 16 }}>
+        <header className="px-4 py-6 md:px-0 md:py-0 text-center" style={{ marginBottom: 40 }}>
+          <h1 className="text-2xl md:text-4xl font-bold text-[var(--navy)] mb-4" style={{ margin: '0 0 16px 0', lineHeight: 1.2 }}>
             EAMCET Scholarship & Fee Reimbursement Guide 2025
           </h1>
-          <p style={{ fontSize: '1.1rem', color: 'var(--slate)', maxWidth: 800, margin: '0 auto' }}>
+          <p className="text-sm md:text-[1.1rem] text-[var(--slate)] max-w-[800px] mx-auto">
             Complete guide to government and private scholarships available for AP and Telangana engineering students
           </p>
         </header>

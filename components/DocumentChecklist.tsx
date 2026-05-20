@@ -54,18 +54,23 @@ export default function DocumentChecklist() {
   const progressPercent = Math.round((completedCount / REQUIRED_DOCS.length) * 100);
 
   return (
-    <div style={{ background: '#fff', borderRadius: 'var(--r2)', border: '1px solid var(--line)', padding: '24px', boxShadow: 'var(--sh1)' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
-        <h3 style={{ fontFamily: 'Playfair Display,serif', fontSize: '1.4rem', fontWeight: 800, color: 'var(--navy)' }}>Document Checklist</h3>
+    <div 
+      className="py-4 px-0 md:p-6 bg-white border border-gray-200 shadow-sm"
+      style={{ borderRadius: 'var(--r2)', boxShadow: 'var(--sh1)' }}
+    >
+      <div className="flex justify-between items-center mb-4 md:mb-5 px-4 md:px-0">
+        <h3 className="text-base font-semibold md:text-[1.4rem] md:font-extrabold" style={{ fontFamily: 'Playfair Display,serif', color: 'var(--navy)' }}>
+          Document Checklist
+        </h3>
         <button onClick={handlePrint} className="no-print" style={{ padding: '8px 12px', background: 'transparent', border: '1px solid var(--line-dk)', borderRadius: 'var(--r)', color: 'var(--text)', fontSize: '.8rem', fontWeight: 600, cursor: 'pointer' }}>
           🖨 Print
         </button>
       </div>
 
       {/* Progress Bar */}
-      <div style={{ marginBottom: 24 }}>
+      <div className="mb-5 md:mb-6 px-4 md:px-0">
         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '.85rem', fontWeight: 700, color: 'var(--subtle)', marginBottom: 8 }}>
-          <span>{completedCount} of {REQUIRED_DOCS.length} documents ready</span>
+          <span className="flex-1">{completedCount} of {REQUIRED_DOCS.length} documents ready</span>
           <span>{progressPercent}%</span>
         </div>
         <div style={{ width: '100%', height: 8, background: 'var(--line)', borderRadius: 4, overflow: 'hidden' }}>
@@ -73,7 +78,7 @@ export default function DocumentChecklist() {
         </div>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+      <div className="flex flex-col gap-2 md:gap-3 px-4 md:px-0">
         {REQUIRED_DOCS.map(doc => {
           const isChecked = !!checkedItems[doc.id];
           return (
@@ -102,7 +107,6 @@ export default function DocumentChecklist() {
           body * { visibility: hidden; }
           .no-print { display: none !important; }
           .container, .container * { visibility: visible; }
-          /* Add specific print styles if needed to make it clean */
         }
       `}} />
     </div>
