@@ -4,8 +4,15 @@ import { SCHOLARSHIP_SCHEMES } from '@/lib/scholarshipRules';
 import ScholarshipsClient from './ScholarshipsClient';
 
 export const metadata: Metadata = {
-  title: 'EAMCET Scholarship & Fee Reimbursement Guide 2025',
-  description: 'Complete guide to government and private scholarships available for AP and Telangana engineering students',
+  title: 'EAPCET Scholarship & Fee Reimbursement Guide 2025 — AP & Telangana',
+  description: 'Complete guide to 10 government and private scholarships for AP & Telangana engineering students. Covers Vidya Deevena, TS ePASS, PM YASASVI, and more. Check eligibility instantly.',
+  alternates: {
+    canonical: '/tools/scholarships',
+  },
+  openGraph: {
+    title: 'EAMCET Scholarship & Fee Reimbursement Guide 2025 — RankSure',
+    description: 'Find all scholarships available for AP & TS EAPCET engineering students. Compare benefits, eligibility, and apply directly.',
+  },
 };
 
 export default function ScholarshipsPage() {

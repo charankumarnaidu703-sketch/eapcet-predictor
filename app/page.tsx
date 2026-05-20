@@ -155,9 +155,10 @@ export default function HomePage() {
       {/* ── Nav ── */}
       <nav className="nav" role="navigation" aria-label="Main navigation">
         <div className="nav-inner">
-          <a href="/" className="nav-logo">🎯 EAPCET <span>Predictor</span></a>
+          <a href="/" className="nav-logo">🎯 Rank<span>Sure</span></a>
           <ul className="nav-links">
             <li><a href="/compare">Compare</a></li>
+            <li><a href="/blog">Guides</a></li>
             <li><a href="/tools/counselling">Counselling</a></li>
             <li><a href="/tools/scholarships">Scholarships</a></li>
             <li><a href="/tools/reimbursement">Fee Aid</a></li>
@@ -335,7 +336,7 @@ export default function HomePage() {
       {!searched&&(
         <section className="features">
           <div className="features-inner">
-            <div className="features-eyebrow">Why EAPCET Predictor</div>
+            <div className="features-eyebrow">Why RankSure</div>
             <h2>Built for AP students,<br/>by data — not guesswork</h2>
             <div className="features-grid">
               {[
@@ -364,14 +365,140 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* ── Footer ── */}
-      <footer className="footer">
-        <p>© 2025 EAPCET Predictor · Data from AP EAPCET official allotments ·{' '}
-          <a href="/tools/counselling">Counselling</a> · <a href="/tools/reimbursement">Fee Aid</a>
-        </p>
-        <p style={{marginTop:6,fontSize:'.72rem'}}>
-          Predictions are based on historical data. Actual cutoffs may vary.
-        </p>
+      {/* ── How It Works (SEO content for indexing) ── */}
+      {!searched&&(
+        <section className="how-it-works">
+          <div className="how-inner">
+            <div className="how-eyebrow">How It Works</div>
+            <h2>Get Your College Prediction in 4 Simple Steps</h2>
+            <div className="how-steps">
+              <div className="how-step">
+                <h3>Enter Your EAPCET Rank</h3>
+                <p>Type your AP EAPCET 2025 rank along with your category (OC, BC, SC, ST) and preferred branch.</p>
+              </div>
+              <div className="how-step">
+                <h3>AI Analyses 6,243 Records</h3>
+                <p>Our prediction engine uses a trend-adjusted statistical model on 3 years of official cutoff data from 328+ colleges.</p>
+              </div>
+              <div className="how-step">
+                <h3>See Safe / Medium / Reach</h3>
+                <p>Colleges are sorted by your admission probability — Safe (75%+), Medium (40–74%), and Reach (below 40%).</p>
+              </div>
+              <div className="how-step">
+                <h3>Compare & Decide</h3>
+                <p>Compare up to 3 colleges side-by-side on fees, placements, and cutoff trends. Check <a href="/tools/reimbursement" style={{color:'var(--gold)'}}>fee reimbursement</a> eligibility too.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── FAQ Section with Schema (SEO) ── */}
+      {!searched&&(
+        <section className="faq-section">
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              { '@type': 'Question', name: 'What is the AP EAPCET College Predictor?', acceptedAnswer: { '@type': 'Answer', text: 'RankSure is a free tool that predicts which AP engineering colleges you can get admission to based on your EAPCET 2025 rank. It uses 3 years of official cutoff data (2023–2025) from 328+ colleges and calculates your probability using a trend-adjusted statistical model.' }},
+              { '@type': 'Question', name: 'How accurate is the EAPCET rank predictor?', acceptedAnswer: { '@type': 'Answer', text: 'RankSure uses actual closing rank data from AP EAPCET official allotments across 2023, 2024, and 2025. The prediction model accounts for year-over-year cutoff trends and volatility. While no predictor can guarantee admission, our Safe/Medium/Reach bands provide reliable guidance based on historical patterns.' }},
+              { '@type': 'Question', name: 'Is RankSure free to use?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, RankSure is completely free. No login required, no hidden fees. Enter your rank and get instant predictions for 328+ colleges.' }},
+              { '@type': 'Question', name: 'What data does RankSure use?', acceptedAnswer: { '@type': 'Answer', text: 'RankSure uses official AP EAPCET allotment data from 2023, 2024, and 2025 — a total of 6,243 cutoff records across 328+ colleges and 117 branches. The data includes opening ranks, closing ranks, annual fees, and placement ratings.' }},
+              { '@type': 'Question', name: 'Can I check fee reimbursement eligibility?', acceptedAnswer: { '@type': 'Answer', text: 'Yes! RankSure includes a fee reimbursement eligibility checker that covers 10 government and private schemes including AP Vidya Deevena, TS ePASS, PM YASASVI, and more. Visit the Fee Aid section to check your eligibility based on category and family income.' }},
+              { '@type': 'Question', name: 'When is AP EAPCET 2025 counselling?', acceptedAnswer: { '@type': 'Answer', text: 'RankSure provides a live counselling tracker with countdown timers to all upcoming AP EAPCET 2025 counselling events including web options, certificate verification, and seat allotment dates. Visit the Counselling section for the latest schedule and required document checklist.' }},
+            ]
+          })}} />
+          <div className="faq-inner">
+            <div className="faq-eyebrow">Frequently Asked Questions</div>
+            <h2>Everything You Need to Know About EAPCET Predictions</h2>
+            <div className="faq-list">
+              <details className="faq-item">
+                <summary>What is the AP EAPCET College Predictor?</summary>
+                <div className="faq-answer">
+                  RankSure is a free tool that predicts which AP engineering colleges you can get admission to based on your <strong>EAPCET 2025 rank</strong>. It uses 3 years of official cutoff data (2023–2025) from 328+ colleges and calculates your probability using a trend-adjusted statistical model.
+                </div>
+              </details>
+              <details className="faq-item">
+                <summary>How accurate is the EAPCET rank predictor?</summary>
+                <div className="faq-answer">
+                  RankSure uses actual closing rank data from AP EAPCET official allotments across 2023, 2024, and 2025. The prediction model accounts for year-over-year cutoff trends and volatility. While no predictor can guarantee admission, our <strong>Safe / Medium / Reach</strong> bands provide reliable guidance based on historical patterns.
+                </div>
+              </details>
+              <details className="faq-item">
+                <summary>Is RankSure free to use?</summary>
+                <div className="faq-answer">
+                  Yes, RankSure is completely free. No login required, no hidden fees. Enter your rank and get instant predictions for 328+ colleges.
+                </div>
+              </details>
+              <details className="faq-item">
+                <summary>What data does RankSure use?</summary>
+                <div className="faq-answer">
+                  RankSure uses official AP EAPCET allotment data from 2023, 2024, and 2025 — a total of <strong>6,243 cutoff records</strong> across 328+ colleges and 117 branches. The data includes opening ranks, closing ranks, annual fees, and placement ratings.
+                </div>
+              </details>
+              <details className="faq-item">
+                <summary>Can I check fee reimbursement eligibility?</summary>
+                <div className="faq-answer">
+                  Yes! RankSure includes a <a href="/tools/reimbursement">fee reimbursement eligibility checker</a> that covers 10 government and private schemes including AP Vidya Deevena, TS ePASS, PM YASASVI, and more. Check your eligibility based on category and family income.
+                </div>
+              </details>
+              <details className="faq-item">
+                <summary>When is AP EAPCET 2025 counselling?</summary>
+                <div className="faq-answer">
+                  RankSure provides a live <a href="/tools/counselling">counselling tracker</a> with countdown timers to all upcoming AP EAPCET 2025 counselling events including web options, certificate verification, and seat allotment dates. Visit the Counselling section for the latest schedule and required document checklist.
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── Enhanced Footer with Internal Links (SEO) ── */}
+      <footer className="footer-enhanced">
+        <div className="footer-grid">
+          <div className="footer-brand">
+            <a href="/" className="nav-logo">🎯 Rank<span>Sure</span></a>
+            <p>Free AP EAPCET college predictor built on 3 years of official cutoff data. Helping students find the right engineering college since 2025.</p>
+            <p style={{fontSize:'.7rem',color:'rgba(255,255,255,.25)',marginTop:4}}>
+              Data sourced from AP EAPCET official allotments (2023–2025).
+            </p>
+          </div>
+          <div className="footer-col">
+            <h4>Tools</h4>
+            <ul>
+              <li><a href="/">EAPCET Predictor</a></li>
+              <li><a href="/compare">Compare Colleges</a></li>
+              <li><a href="/tools/counselling">Counselling Dates</a></li>
+              <li><a href="/tools/scholarships">Scholarships</a></li>
+              <li><a href="/tools/reimbursement">Fee Reimbursement</a></li>
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h4>Popular Branches</h4>
+            <ul>
+              <li><a href="/?branch=CSE">CSE Colleges</a></li>
+              <li><a href="/?branch=ECE">ECE Colleges</a></li>
+              <li><a href="/?branch=EEE">EEE Colleges</a></li>
+              <li><a href="/?branch=Mechanical">Mechanical Colleges</a></li>
+              <li><a href="/?branch=IT">IT Colleges</a></li>
+              <li><a href="/?branch=Civil">Civil Colleges</a></li>
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="/tools/counselling">Document Checklist</a></li>
+              <li><a href="/tools/scholarships">Vidya Deevena Scheme</a></li>
+              <li><a href="/tools/scholarships">TS ePASS Guide</a></li>
+              <li><a href="/tools/reimbursement">Eligibility Checker</a></li>
+              <li><a href="/sitemap.xml">Sitemap</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p>© 2025 RankSure · Data from AP EAPCET official allotments · Predictions are based on historical data.</p>
+          <p>Built with 💛 for AP engineering students</p>
+        </div>
       </footer>
 
       {/* ── Floating Compare Bar ── */}

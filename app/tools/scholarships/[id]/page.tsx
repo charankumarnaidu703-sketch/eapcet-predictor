@@ -38,7 +38,7 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
       {/* Navigation matching other pages */}
       <nav className="nav" aria-label="Main navigation">
         <div className="nav-inner">
-          <a href="/" className="nav-logo">🎯 EAPCET <span>Predictor</span></a>
+          <a href="/" className="nav-logo">🎯 Rank<span>Sure</span></a>
           <ul className="nav-links">
             <li><a href="/">← Predictor</a></li>
             <li><a href="/tools/counselling">Counselling</a></li>
@@ -147,8 +147,44 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
         </div>
       </main>
       
-      <footer className="footer">
-        <p>© 2025 EAPCET Predictor · <a href="/tools/scholarships">Back to Scholarships</a></p>
+      <footer className="footer-enhanced">
+        <div className="footer-grid">
+          <div className="footer-brand">
+            <a href="/" className="nav-logo">🎯 Rank<span>Sure</span></a>
+            <p>Free AP EAPCET college predictor with 3 years of official cutoff data.</p>
+          </div>
+          <div className="footer-col">
+            <h4>Tools</h4>
+            <ul>
+              <li><a href="/">EAPCET Predictor</a></li>
+              <li><a href="/compare">Compare Colleges</a></li>
+              <li><a href="/tools/counselling">Counselling Dates</a></li>
+              <li><a href="/tools/scholarships">Scholarships</a></li>
+              <li><a href="/tools/reimbursement">Fee Reimbursement</a></li>
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h4>Scholarships</h4>
+            <ul>
+              <li><a href="/tools/scholarships/ap-vidya-deevena">Vidya Deevena</a></li>
+              <li><a href="/tools/scholarships/ts-epass">TS ePASS</a></li>
+              <li><a href="/tools/scholarships/pm-yasasvi">PM YASASVI</a></li>
+              <li><a href="/tools/reimbursement">Eligibility Checker</a></li>
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="/tools/counselling">Counselling Dates</a></li>
+              <li><a href="/tools/counselling">Document Checklist</a></li>
+              <li><a href="/sitemap.xml">Sitemap</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p>© 2025 RankSure · Data from AP EAPCET official allotments</p>
+          <p>Built with 💛 for AP engineering students</p>
+        </div>
       </footer>
     </>
   );

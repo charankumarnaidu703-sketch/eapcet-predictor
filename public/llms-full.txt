@@ -1,0 +1,97 @@
+# RankSure — EAPCET College Predictor (Full Guide for AI Systems)
+
+> RankSure is a free web application that helps AP EAPCET 2025 students predict
+> which engineering colleges they can get admission to based on their rank. It uses
+> 3 years of official cutoff data (2023, 2024, 2025) from 328+ colleges across
+> Andhra Pradesh, analyzing 6,243 cutoff records.
+
+## How the Predictor Works
+
+Students enter their AP EAPCET rank, category (OC, BC-A, BC-B, BC-C, BC-D, BC-E,
+SC, ST), and preferred branch. The system uses a Trend-Adjusted Normal Distribution
+model to calculate admission probability for each college-branch combination.
+Results are categorized into three bands:
+- **Safe (75%+ probability)**: Very likely to get admission
+- **Medium (40–74% probability)**: Good chance, worth including in web options
+- **Reach (below 40% probability)**: Competitive, include if it's a dream college
+
+## Key Pages and Their Purpose
+
+### / (Homepage — EAPCET Predictor Tool)
+The main prediction tool. Users enter rank, category, and branch to get instant
+college predictions sorted by admission probability.
+
+### /college/[name] (College Detail Pages — 328+ pages)
+Individual pages for each engineering college showing:
+- Branch-wise opening and closing ranks (2023–2025)
+- Annual fees
+- Placement ratings (1–5 stars)
+- Cutoff trend charts
+- Transportation routes to the college
+- Related colleges in the same location
+
+### /college/[name]/cutoff (Cutoff History Pages — 328+ pages)
+Detailed branch-wise cutoff history with interactive charts. Shows how closing
+ranks have changed over 3 years. Includes FAQ about that college's cutoffs.
+
+### /compare (College Comparison Tool)
+Side-by-side comparison of up to 3 colleges. Compares fees, closing ranks,
+placement ratings, and admission probability.
+
+### /tools/counselling (Counselling Dates & Document Checklist)
+Live countdown timers to AP & TS EAPCET 2025 counselling events. Interactive
+document checklist for certificate verification.
+
+### /tools/scholarships (Scholarship Guide)
+Guide to 10 government and private scholarship schemes available for AP and
+Telangana engineering students. Covers:
+- AP Vidya Deevena (fee reimbursement for eligible AP students)
+- AP Vasathi Deevena (hostel/travel allowance)
+- TS ePASS (Telangana fee reimbursement)
+- PM YASASVI (Central government for OBC/EBC/DNT)
+- AP EBC Scholarship
+- National Means-cum-Merit Scholarship
+- AICTE Pragati (for girls in engineering)
+- And more
+
+### /tools/reimbursement (Fee Reimbursement Eligibility Checker)
+Interactive tool that checks eligibility for multiple fee reimbursement schemes
+based on the student's state, category, family income, and college type.
+
+### /blog (Expert Guides)
+In-depth articles on EAPCET counselling process, top college rankings,
+rank-wise college lists, and branch selection advice.
+
+## Data Sources
+- AP EAPCET official allotment data from 2023, 2024, and 2025
+- 6,243 cutoff records across 328+ colleges and 117 branches
+- Prediction model: Trend-Adjusted Normal Distribution with volatility weighting
+
+## Frequently Asked Questions
+
+Q: What is RankSure?
+A: RankSure is a free AP EAPCET college predictor that uses 3 years of official
+cutoff data to predict which engineering colleges a student can get into based
+on their rank. It covers 328+ colleges and 117 branches.
+
+Q: How accurate is RankSure?
+A: RankSure uses actual closing rank data from official AP EAPCET allotments.
+The prediction model accounts for year-over-year trends and volatility. While
+no tool can guarantee admission, the Safe/Medium/Reach bands provide reliable
+guidance based on historical patterns.
+
+Q: Is RankSure free?
+A: Yes, completely free. No login, no hidden fees. Students enter their rank
+and get instant predictions.
+
+Q: What branches does RankSure cover?
+A: All 117 branches offered across AP engineering colleges including CSE, ECE,
+EEE, Mechanical, Civil, IT, AI & ML, Data Science, and more.
+
+Q: How do I use RankSure during counselling?
+A: Enter your rank to see Safe/Medium/Reach colleges. Use those results to fill
+web options strategically — place dream colleges first, followed by safe options.
+Add at least 30–50 options for maximum chances.
+
+## Contact
+Website: https://ranksure.vercel.app

@@ -3,10 +3,18 @@ import CounsellingWidget from '@/components/CounsellingWidget';
 import DocumentChecklist from '@/components/DocumentChecklist';
 import ReimbursementMiniBanner from '@/components/college/ReimbursementMiniBanner';
 import Link from 'next/link';
+import Breadcrumb from '@/components/Breadcrumb';
 
 export const metadata: Metadata = {
-  title: 'EAPCET 2025 Counselling Dates & Document Checklist',
-  description: 'Stay updated with AP & TS EAPCET counselling dates, web options, allotment schedules, and track your required documents for verification.',
+  title: 'AP EAPCET 2025 Counselling Dates & Document Checklist',
+  description: 'AP & TS EAPCET 2025 counselling schedule with live countdown, web options dates, allotment schedule, and complete document checklist for verification. Updated daily.',
+  alternates: {
+    canonical: '/tools/counselling',
+  },
+  openGraph: {
+    title: 'EAPCET 2025 Counselling Dates & Document Checklist — RankSure',
+    description: 'Live countdown to AP EAPCET counselling events. Track web options, allotment dates, and verify your document checklist.',
+  },
 };
 
 export default function CounsellingPage() {
@@ -16,9 +24,11 @@ export default function CounsellingPage() {
       <main style={{ flex: 1, padding: '40px 16px', background: 'var(--cream-lt)' }}>
         <div className="container" style={{ maxWidth: 1000 }}>
           
-          <Link href="/" style={{ display: 'inline-block', marginBottom: 20, padding: '8px 16px', background: 'transparent', border: '1px solid var(--line-dk)', borderRadius: 'var(--r)', color: 'var(--muted)', fontWeight: 600, cursor: 'pointer', fontFamily: 'Plus Jakarta Sans,sans-serif', textDecoration: 'none' }}>
-            ← Back to Predictor
-          </Link>
+          <Breadcrumb items={[
+            { label: 'Home', href: '/' },
+            { label: 'Tools', href: '/' },
+            { label: 'Counselling Dates' },
+          ]} />
           
           <div style={{ textAlign: 'center', marginBottom: 40 }}>
             <h1 style={{ fontFamily: 'Playfair Display,serif', color: 'var(--navy)', fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', fontWeight: 800, marginBottom: 8 }}>

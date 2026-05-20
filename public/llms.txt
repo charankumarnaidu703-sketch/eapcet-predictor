@@ -1,0 +1,28 @@
+# RankSure — EAPCET College Predictor
+
+> RankSure helps AP EAPCET 2025 students predict which engineering colleges
+> they can get into based on their rank. Uses 3 years of official cutoff data
+> from 328+ colleges and 6,243 records.
+
+## Key Pages
+- / — EAPCET rank predictor tool (enter rank → see Safe/Medium/Reach colleges)
+- /tools/counselling — AP & TS EAPCET counselling dates and document checklist
+- /tools/scholarships — Government and private scholarship guide for engineering students
+- /tools/reimbursement — Fee reimbursement eligibility checker (AP & Telangana)
+- /compare — Side-by-side comparison of up to 3 colleges
+- /college/[name] — Individual college details with cutoff trends and transport info
+- /college/[name]/cutoff — Full branch-wise cutoff history with charts (2023–2025)
+
+## Data Sources
+- AP EAPCET official allotment data (2023, 2024, 2025)
+- 6,243 cutoff records across 328+ colleges and 117 branches
+- Prediction model uses Trend-Adjusted Normal Distribution
+
+## Topics Covered
+- EAPCET college prediction by rank
+- Branch-wise opening and closing rank cutoffs
+- College comparison (fees, placements, cutoffs)
+- AP & TS counselling schedule and process
+- Fee reimbursement eligibility (Vidya Deevena, TS ePASS, etc.)
+- Scholarship schemes for engineering students
+- Transport routes to colleges

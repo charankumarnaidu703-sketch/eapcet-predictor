@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { supabase } from '@/lib/supabase';
 import CutoffClient from '@/components/college/CutoffClient';
+import Breadcrumb from '@/components/Breadcrumb';
 
 interface PageProps {
   params: Promise<{ name: string }>;
@@ -130,7 +131,7 @@ export default async function CollegeCutoffPage({ params }: PageProps) {
       {/* Navigation matching other pages */}
       <nav className="nav" aria-label="Main navigation">
         <div className="nav-inner">
-          <a href="/" className="nav-logo">🎯 EAPCET <span>Predictor</span></a>
+          <a href="/" className="nav-logo">🎯 Rank<span>Sure</span></a>
           <ul className="nav-links">
             <li><a href="/">← Predictor</a></li>
             <li><a href="/tools/counselling">Counselling</a></li>
@@ -142,6 +143,14 @@ export default async function CollegeCutoffPage({ params }: PageProps) {
       {/* SECTION A — Hero */}
       <div style={{ background: 'var(--navy)', padding: '48px 24px 60px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
+          <Breadcrumb
+            variant="dark"
+            items={[
+              { label: 'Home', href: '/' },
+              { label: collegeName, href: `/college/${encodeURIComponent(collegeName)}` },
+              { label: 'Cutoff History' },
+            ]}
+          />
           <div className="hero-eyebrow" style={{ marginBottom: 12, color: 'var(--gold-lt)' }}>
             Official Cutoff History
           </div>
@@ -219,8 +228,43 @@ export default async function CollegeCutoffPage({ params }: PageProps) {
         </div>
       </main>
 
-      <footer className="footer">
-        <p>© 2025 EAPCET Predictor · Official Data</p>
+      <footer className="footer-enhanced">
+        <div className="footer-grid">
+          <div className="footer-brand">
+            <a href="/" className="nav-logo">🎯 Rank<span>Sure</span></a>
+            <p>Free AP EAPCET college predictor with 3 years of official cutoff data.</p>
+          </div>
+          <div className="footer-col">
+            <h4>Tools</h4>
+            <ul>
+              <li><a href="/">EAPCET Predictor</a></li>
+              <li><a href="/compare">Compare Colleges</a></li>
+              <li><a href="/tools/counselling">Counselling Dates</a></li>
+              <li><a href="/tools/scholarships">Scholarships</a></li>
+              <li><a href="/tools/reimbursement">Fee Reimbursement</a></li>
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h4>This College</h4>
+            <ul>
+              <li><a href={`/college/${encodeURIComponent(collegeName)}`}>College Details</a></li>
+              <li><a href={`/compare?colleges=${encodeURIComponent(collegeName)}`}>Compare</a></li>
+              <li><a href="/tools/reimbursement">Check Fee Aid</a></li>
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="/tools/counselling">Document Checklist</a></li>
+              <li><a href="/tools/scholarships">Vidya Deevena Scheme</a></li>
+              <li><a href="/sitemap.xml">Sitemap</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p>© 2025 RankSure · Official Data</p>
+          <p>Built with 💛 for AP engineering students</p>
+        </div>
       </footer>
     </>
   );

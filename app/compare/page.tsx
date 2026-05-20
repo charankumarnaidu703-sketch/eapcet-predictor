@@ -26,6 +26,13 @@ export interface CollegeData {
 export const metadata: Metadata = {
   title: 'Compare EAPCET Colleges Side by Side | 2025 Cutoffs & Fees',
   description: 'Compare up to 3 EAPCET colleges side by side. See closing ranks, annual fees, placement ratings and your admission probability at a glance.',
+  alternates: {
+    canonical: '/compare',
+  },
+  openGraph: {
+    title: 'Compare EAPCET Colleges — RankSure',
+    description: 'Side-by-side comparison of AP EAPCET colleges with cutoff ranks, fees, placements, and admission probability.',
+  },
 };
 
 function toSlug(name: string): string {
@@ -58,7 +65,7 @@ export default async function ComparePage({ searchParams }: PageProps) {
       {/* ── Nav (matches main site) ── */}
       <nav className="nav" aria-label="Comparison navigation">
         <div className="nav-inner">
-          <a href="/" className="nav-logo">🎯 EAPCET <span>Predictor</span></a>
+          <a href="/" className="nav-logo">🎯 Rank<span>Sure</span></a>
           <ul className="nav-links">
             <li><a href="/">← Predictor</a></li>
             <li><a href="/tools/counselling">Counselling</a></li>
@@ -138,8 +145,44 @@ export default async function ComparePage({ searchParams }: PageProps) {
         )}
       </main>
 
-      <footer className="footer">
-        <p>© 2025 EAPCET Predictor · <a href="/">Back to Predictor</a></p>
+      <footer className="footer-enhanced">
+        <div className="footer-grid">
+          <div className="footer-brand">
+            <a href="/" className="nav-logo">🎯 Rank<span>Sure</span></a>
+            <p>Free AP EAPCET college predictor with 3 years of official cutoff data.</p>
+          </div>
+          <div className="footer-col">
+            <h4>Tools</h4>
+            <ul>
+              <li><a href="/">EAPCET Predictor</a></li>
+              <li><a href="/compare">Compare Colleges</a></li>
+              <li><a href="/tools/counselling">Counselling Dates</a></li>
+              <li><a href="/tools/scholarships">Scholarships</a></li>
+              <li><a href="/tools/reimbursement">Fee Reimbursement</a></li>
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h4>Popular Branches</h4>
+            <ul>
+              <li><a href="/?branch=CSE">CSE Colleges</a></li>
+              <li><a href="/?branch=ECE">ECE Colleges</a></li>
+              <li><a href="/?branch=EEE">EEE Colleges</a></li>
+              <li><a href="/?branch=Mechanical">Mechanical Colleges</a></li>
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="/tools/counselling">Document Checklist</a></li>
+              <li><a href="/tools/scholarships">Vidya Deevena Scheme</a></li>
+              <li><a href="/sitemap.xml">Sitemap</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p>© 2025 RankSure · Data from AP EAPCET official allotments</p>
+          <p>Built with 💛 for AP engineering students</p>
+        </div>
       </footer>
     </>
   );
