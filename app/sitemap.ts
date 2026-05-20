@@ -1,7 +1,9 @@
 import type { MetadataRoute } from 'next';
 import { createClient } from '@supabase/supabase-js';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://ranksure.vercel.app';
+// Hardcoded: sitemaps must always use the production URL, not env vars
+// (NEXT_PUBLIC_SITE_URL is "http://localhost:3000" in .env and gets baked into the build)
+const SITE_URL = 'https://ranksure.vercel.app';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const supabase = createClient(

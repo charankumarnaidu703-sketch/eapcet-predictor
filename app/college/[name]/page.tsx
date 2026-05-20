@@ -7,7 +7,7 @@ interface PageProps {
   params: Promise<{ name: string }>;
 }
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://ranksure.vercel.app';
+const SITE_URL = 'https://ranksure.vercel.app';
 
 export const revalidate = 86400; // 24 hours
 

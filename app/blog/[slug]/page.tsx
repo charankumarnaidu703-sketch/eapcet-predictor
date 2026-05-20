@@ -7,7 +7,7 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://ranksure.vercel.app';
+const SITE_URL = 'https://ranksure.vercel.app';
 
 export function generateStaticParams() {
   return blogPosts.map(post => ({ slug: post.slug }));
