@@ -2,11 +2,13 @@
 
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/
 
 # Sitemap
 Sitemap: https://ranksure.vercel.app/sitemap.xml
 
-# AI Crawlers
+# AI Crawlers — explicitly allow
 User-agent: GPTBot
 Allow: /
 
@@ -24,8 +26,3 @@ Allow: /
 
 User-agent: Applebot-Extended
 Allow: /
-
-# Block API routes from crawling
-User-agent: *
-Disallow: /api/
-Disallow: /_next/
