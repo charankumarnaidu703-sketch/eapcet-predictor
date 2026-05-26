@@ -88,11 +88,11 @@ function InfoRow({ icon, label, value }: { icon: string; label: string; value: R
 
 function HubPill({ icon, label, name, distKm }: { icon: string; label: string; name: string; distKm: number }) {
   return (
-    <div style={{ background: 'var(--cream)', border: '1px solid var(--line)', borderRadius: 'var(--r)', padding: '10px 14px', display: 'flex', gap: 10, alignItems: 'center', fontFamily: 'Plus Jakarta Sans,sans-serif' }}>
-      <span style={{ fontSize: '1.2rem' }}>{icon}</span>
-      <div>
+    <div style={{ background: 'var(--cream)', border: '1px solid var(--line)', borderRadius: 'var(--r)', padding: '10px 14px', display: 'flex', gap: 10, alignItems: 'center', fontFamily: 'Plus Jakarta Sans,sans-serif', minWidth: 0 }}>
+      <span style={{ fontSize: '1.2rem', flexShrink: 0 }}>{icon}</span>
+      <div style={{ minWidth: 0, flex: 1 }}>
         <div style={{ fontSize: '.6rem', color: 'var(--subtle)', textTransform: 'uppercase', letterSpacing: '.06em', fontWeight: 700 }}>{label}</div>
-        <div style={{ fontSize: '.83rem', fontWeight: 600, color: 'var(--text)' }}>{name}</div>
+        <div style={{ fontSize: '.83rem', fontWeight: 600, color: 'var(--text)', overflowWrap: 'anywhere', wordBreak: 'break-word' }}>{name}</div>
         <div style={{ fontSize: '.72rem', color: 'var(--muted)' }}>{distKm} km away</div>
       </div>
     </div>
@@ -199,6 +199,11 @@ export default function TransportSection({ collegeName, location }: Props) {
           .progress-bar-fill {
             width: 100%; height: 100%; border-radius: 4px;
             animation: indeterminate 1.5s infinite linear;
+          }
+          @media (max-width: 768px) {
+            .nearest-hubs-grid {
+              grid-template-columns: 1fr !important;
+            }
           }
         `}
       </style>
@@ -359,7 +364,7 @@ export default function TransportSection({ collegeName, location }: Props) {
                   <p style={{ fontSize: '.65rem', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--subtle)', fontFamily: 'Plus Jakarta Sans,sans-serif', marginBottom: 12 }}>
                     Nearest Transport Hubs
                   </p>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))', gap: 10 }}>
+                  <div className="nearest-hubs-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))', gap: 10 }}>
                     {geo.nearestRailway  && <HubPill icon="🚂" label="Railway Station" name={geo.nearestRailway.name}  distKm={geo.nearestRailway.distance_km} />}
                     {geo.nearestBusStand && <HubPill icon="🚌" label="Bus Stand"        name={geo.nearestBusStand.name} distKm={geo.nearestBusStand.distance_km} />}
                   </div>

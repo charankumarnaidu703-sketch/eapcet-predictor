@@ -192,7 +192,7 @@ export default function HomePage() {
           <div className="form-card">
             <div className="form-card-title">Enter Your Details</div>
             <form onSubmit={handlePredict} noValidate aria-label="College prediction form">
-              <div className="form-grid flex flex-col space-y-4 md:grid md:grid-cols-2 md:gap-[14px] md:space-y-0">
+              <div className="form-grid grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-[14px]">
                 <div className="form-group full flex flex-col gap-1">
                   <label className="form-label block mb-1 text-sm font-medium md:text-[0.67rem] md:font-bold md:tracking-[0.08em] md:uppercase md:mb-0" htmlFor="rank-input">Your EAPCET Rank *</label>
                   <input id="rank-input" type="number" className="form-input w-full min-h-[44px] px-3 py-2.5 text-base md:min-h-0 md:px-[13px] md:py-[11px] md:text-[0.92rem]"

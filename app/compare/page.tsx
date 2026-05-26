@@ -72,6 +72,7 @@ export default async function ComparePage({ searchParams }: PageProps) {
             <li><a href="/">← Predictor</a></li>
             <li><a href="/blog">Guides</a></li>
             <li><a href="/tools/counselling">Counselling</a></li>
+            <li><a href="/tools/scholarships">Scholarships</a></li>
             <li><a href="/tools/reimbursement">Fee Aid</a></li>
           </ul>
           <MobileNav />
