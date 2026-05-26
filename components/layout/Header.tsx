@@ -13,28 +13,24 @@ const NAV_LINKS = [
 export default function Header() {
   return (
     <nav className="nav relative" role="navigation" aria-label="Main navigation">
-      <div className="nav-inner flex items-center justify-between px-6 h-[60px] max-w-[1200px] mx-auto">
-        <a href="/" className="nav-logo text-white font-bold flex items-center gap-2">
+      <div className="nav-inner">
+        <a href="/" className="nav-logo">
           🎯 Rank<span>Sure</span>
         </a>
 
-        {/* Desktop Links — Hidden on mobile (< 768px) */}
-        <ul className="hidden md:flex items-center gap-1 list-none">
+        {/* Desktop Links — uses .nav-links (hidden on mobile via globals.css) */}
+        <ul className="nav-links">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-white/65 hover:text-white hover:bg-white/8 px-3 py-1.5 rounded text-[0.82rem] font-medium transition-all"
-              >
-                {link.label}
-              </a>
+              <a href={link.href}>{link.label}</a>
             </li>
           ))}
         </ul>
 
-        {/* Unified sliding drawer MobileNav — replaces old hamburger & dropdown menu */}
+        {/* Mobile sliding drawer */}
         <MobileNav />
       </div>
     </nav>
   );
 }
+
