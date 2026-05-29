@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import blogPosts from '@/data/blog-posts.json';
 import Breadcrumb from '@/components/Breadcrumb';
 import MobileNav from '@/components/MobileNav';
+import CollegeSearch from '@/components/CollegeSearch';
 
 export const metadata: Metadata = {
   title: 'EAPCET 2025 Guides & Articles — Counselling, Colleges & Scholarships',
@@ -27,6 +28,7 @@ export default function BlogPage() {
             <li><a href="/tools/counselling">Counselling</a></li>
             <li><a href="/tools/scholarships">Scholarships</a></li>
           </ul>
+          <CollegeSearch />
           <MobileNav />
         </div>
       </nav>

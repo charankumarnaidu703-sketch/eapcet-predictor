@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import blogPosts from '@/data/blog-posts.json';
 import Breadcrumb from '@/components/Breadcrumb';
 import MobileNav from '@/components/MobileNav';
+import CollegeSearch from '@/components/CollegeSearch';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -203,6 +204,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <li><a href="/tools/counselling">Counselling</a></li>
             <li><a href="/tools/scholarships">Scholarships</a></li>
           </ul>
+          <CollegeSearch />
           <MobileNav />
         </div>
       </nav>

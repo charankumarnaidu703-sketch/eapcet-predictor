@@ -1,6 +1,7 @@
 'use client';
 
 import MobileNav from '@/components/MobileNav';
+import CollegeSearch from '@/components/CollegeSearch';
 
 const NAV_LINKS = [
   { href: '/compare', label: 'Compare' },
@@ -26,6 +27,9 @@ export default function Header() {
             </li>
           ))}
         </ul>
+
+        {/* College search */}
+        <CollegeSearch />
 
         {/* Mobile sliding drawer */}
         <MobileNav />

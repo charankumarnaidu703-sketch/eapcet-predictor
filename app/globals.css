@@ -102,6 +102,174 @@ button{font-family:'Plus Jakarta Sans',system-ui,sans-serif;cursor:pointer;}
 .nav-links a:hover{color:#fff;background:rgba(255,255,255,.08);}
 
 /* ══════════════════════════════════════════
+   COLLEGE SEARCH
+══════════════════════════════════════════ */
+.college-search{
+  position:relative;
+  display:flex;
+  align-items:center;
+  margin-left:auto;
+}
+.search-toggle{
+  display:none;
+  background:transparent;
+  border:none;
+  color:rgba(255,255,255,.65);
+  padding:8px;
+  cursor:pointer;
+  transition:color .15s;
+}
+.search-toggle:hover{color:#fff;}
+
+.search-input-wrap{
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+.search-icon{
+  position:absolute;
+  left:10px;
+  color:rgba(255,255,255,.4);
+  pointer-events:none;
+  z-index:1;
+}
+.search-input{
+  width:200px;
+  background:rgba(255,255,255,.08);
+  border:1.5px solid rgba(255,255,255,.12);
+  border-radius:var(--r2);
+  padding:7px 32px 7px 32px;
+  font-size:.82rem;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  color:#fff;
+  outline:none;
+  transition:all .2s;
+}
+.search-input::placeholder{color:rgba(255,255,255,.35);}
+.search-input:focus{
+  background:rgba(255,255,255,.12);
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(200,134,42,.15);
+  width:260px;
+}
+
+.search-clear{
+  position:absolute;
+  right:8px;
+  background:none;
+  border:none;
+  color:rgba(255,255,255,.4);
+  font-size:.7rem;
+  cursor:pointer;
+  padding:4px;
+  line-height:1;
+  transition:color .15s;
+}
+.search-clear:hover{color:#fff;}
+
+.search-spinner{
+  position:absolute;
+  right:8px;
+  width:14px;height:14px;
+  border:2px solid rgba(255,255,255,.15);
+  border-top-color:var(--gold);
+  border-radius:50%;
+  animation:spin .6s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* Dropdown */
+.search-dropdown{
+  position:absolute;
+  top:calc(100% + 6px);
+  right:0;
+  width:380px;
+  max-height:400px;
+  overflow-y:auto;
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:var(--r2);
+  box-shadow:var(--sh3);
+  z-index:200;
+  list-style:none;
+  padding:6px;
+}
+.search-result{
+  padding:12px 14px;
+  border-radius:var(--r);
+  cursor:pointer;
+  transition:background .12s;
+}
+.search-result:hover,
+.search-result--active{
+  background:var(--cream);
+}
+.search-result-name{
+  font-size:.88rem;
+  font-weight:600;
+  color:var(--navy);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  line-height:1.4;
+}
+.search-result-location{
+  font-size:.72rem;
+  color:var(--subtle);
+  margin-top:3px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+}
+.search-highlight{
+  background:var(--gold-pale);
+  color:var(--gold);
+  font-weight:700;
+  border-radius:2px;
+  padding:0 1px;
+}
+.search-no-results{
+  padding:20px 16px;
+  text-align:center;
+  color:var(--muted);
+  font-size:.85rem;
+  font-family:'Plus Jakarta Sans',sans-serif;
+}
+
+/* ── Mobile: show toggle, hide input until expanded ── */
+@media(max-width:768px){
+  .search-toggle{display:flex;}
+  .search-input-wrap{
+    display:none;
+  }
+  .college-search--expanded{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:300;
+    background:var(--navy);
+    padding:10px 16px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .college-search--expanded .search-toggle{display:none;}
+  .college-search--expanded .search-input-wrap{
+    display:flex;
+    flex:1;
+  }
+  .college-search--expanded .search-input{
+    width:100%;
+  }
+  .college-search--expanded .search-input:focus{
+    width:100%;
+  }
+  .college-search--expanded .search-dropdown{
+    position:fixed;
+    top:52px;
+    left:8px;
+    right:8px;
+    width:auto;
+    max-height:60vh;
+  }
+}
+
+/* ══════════════════════════════════════════
    HERO — 2-column asymmetric layout
 ══════════════════════════════════════════ */
 .hero{
