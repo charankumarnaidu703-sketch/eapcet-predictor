@@ -1280,3 +1280,105 @@ button{font-family:'Plus Jakarta Sans',system-ui,sans-serif;cursor:pointer;}
 .footer-bottom a{color:var(--gold);transition:opacity .15s;}
 .footer-bottom a:hover{opacity:.8;}
 
+/* ══════════════════════════════════════════
+   SEARCH RESULTS PAGE STYLES
+══════════════════════════════════════════ */
+.search-hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  padding: 48px 24px;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+  margin-bottom: 32px;
+}
+.search-hero-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.search-hero-eyebrow {
+  color: var(--gold-lt);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.search-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.search-hero h1 em {
+  font-style: normal;
+  color: var(--gold-lt);
+}
+.search-hero p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+}
+.search-empty-state {
+  text-align: center;
+  padding: 60px 24px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r2);
+  box-shadow: var(--sh1);
+  max-width: 600px;
+  margin: 40px auto;
+}
+.search-empty-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+.search-empty-state h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.search-empty-state p {
+  color: var(--subtle);
+  margin-bottom: 24px;
+}
+.popular-locations-box {
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+.popular-locations-box h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+.popular-locations-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.popular-location-pill {
+  padding: 8px 16px;
+  background: var(--cream);
+  border: 1px solid var(--line-dk);
+  border-radius: 20px;
+  color: var(--navy);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+.popular-location-pill:hover {
+  background: var(--gold-pale);
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-1px);
+}
+.search-result--location {
+  border-left-color: var(--gold) !important;
+}
+
+

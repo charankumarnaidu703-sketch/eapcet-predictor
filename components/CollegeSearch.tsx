@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 interface SearchResult {
   name: string;
   location: string;
+  type?: 'college' | 'location';
 }
 
 export default function CollegeSearch() {
@@ -51,12 +52,16 @@ export default function CollegeSearch() {
     debounceRef.current = setTimeout(() => doSearch(val), 250);
   };
 
-  const navigateToCollege = (collegeName: string) => {
+  const handleSelection = (item: SearchResult) => {
     setQuery('');
     setResults([]);
     setIsOpen(false);
     setIsExpanded(false);
-    router.push(`/college/${encodeURIComponent(collegeName)}`);
+    if (item.type === 'location') {
+      router.push(`/search?location=${encodeURIComponent(item.name)}`);
+    } else {
+      router.push(`/college/${encodeURIComponent(item.name)}`);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -64,6 +69,11 @@ export default function CollegeSearch() {
       if (e.key === 'Escape') {
         setIsExpanded(false);
         inputRef.current?.blur();
+      } else if (e.key === 'Enter' && query.trim().length >= 2) {
+        e.preventDefault();
+        setIsOpen(false);
+        setIsExpanded(false);
+        router.push(`/search?q=${encodeURIComponent(query)}`);
       }
       return;
     }
@@ -74,9 +84,15 @@ export default function CollegeSearch() {
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
       setActiveIndex(prev => (prev > 0 ? prev - 1 : results.length - 1));
-    } else if (e.key === 'Enter' && activeIndex >= 0) {
+    } else if (e.key === 'Enter') {
       e.preventDefault();
-      navigateToCollege(results[activeIndex].name);
+      if (activeIndex >= 0) {
+        handleSelection(results[activeIndex]);
+      } else if (query.trim().length >= 2) {
+        setIsOpen(false);
+        setIsExpanded(false);
+        router.push(`/search?q=${encodeURIComponent(query)}`);
+      }
     } else if (e.key === 'Escape') {
       setIsOpen(false);
       setIsExpanded(false);
@@ -140,7 +156,7 @@ export default function CollegeSearch() {
           ref={inputRef}
           type="text"
           className="search-input"
-          placeholder="Search colleges..."
+          placeholder="Search colleges or locations..."
           value={query}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
@@ -174,20 +190,31 @@ export default function CollegeSearch() {
         <ul className="search-dropdown" role="listbox">
           {results.map((college, i) => (
             <li
-              key={college.name}
-              className={`search-result ${i === activeIndex ? 'search-result--active' : ''}`}
+              key={college.type === 'location' ? `loc-${college.name}` : `col-${college.name}`}
+              className={`search-result ${i === activeIndex ? 'search-result--active' : ''} ${
+                college.type === 'location' ? 'search-result--location' : ''
+              }`}
               role="option"
               aria-selected={i === activeIndex}
               onMouseEnter={() => setActiveIndex(i)}
-              onClick={() => navigateToCollege(college.name)}
+              onClick={() => handleSelection(college)}
             >
-              <div className="search-result-name">
-                {highlightMatch(college.name)}
-              </div>
-              {college.location && (
-                <div className="search-result-location">
-                  📍 {college.location}
+              {college.type === 'location' ? (
+                <div className="search-result-name" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <span>📍</span>
+                  <span>Colleges in <strong>{college.name}</strong></span>
                 </div>
+              ) : (
+                <>
+                  <div className="search-result-name">
+                    {highlightMatch(college.name)}
+                  </div>
+                  {college.location && (
+                    <div className="search-result-location">
+                      📍 {college.location}
+                    </div>
+                  )}
+                </>
               )}
             </li>
           ))}
@@ -197,7 +224,7 @@ export default function CollegeSearch() {
       {/* No results */}
       {isOpen && results.length === 0 && query.length >= 2 && !isLoading && (
         <div className="search-dropdown search-no-results">
-          <p>No colleges found for &ldquo;{query}&rdquo;</p>
+          <p>No results found for &ldquo;{query}&rdquo;</p>
         </div>
       )}
     </div>
