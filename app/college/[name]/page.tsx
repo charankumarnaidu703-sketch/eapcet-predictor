@@ -18,7 +18,7 @@ export async function generateStaticParams() {
     const { data } = await supabase.from('eapcet_cutoffs').select('college_name');
     if (!data) return [];
     const uniqueNames = Array.from(new Set(data.map(d => d.college_name)));
-    return uniqueNames.map(name => ({ name: encodeURIComponent(name) }));
+    return uniqueNames.map(name => ({ name }));
   } catch {
     return [];
   }

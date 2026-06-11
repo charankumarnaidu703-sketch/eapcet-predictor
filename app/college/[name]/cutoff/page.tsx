@@ -19,7 +19,7 @@ export async function generateStaticParams() {
     
     // Get unique names
     const uniqueNames = Array.from(new Set(data.map(d => d.college_name)));
-    return uniqueNames.map(name => ({ name: encodeURIComponent(name) }));
+    return uniqueNames.map(name => ({ name }));
   } catch (e) {
     return [];
   }
